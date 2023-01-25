@@ -1,0 +1,255 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* .swiper-slide { */
+/* Center slide text vertically */
+/* display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+} */
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .swiper-button-prev {
+  margin-left: 20px;
+  right: auto;
+}
+
+.swiper-button-next {
+  margin-right: 20px;
+  right: auto;
+} */
+
+.cat-bg-wrap {
+  background-image: url('../images/bg-category.png');
+  background-size: 100% 70%;
+  background-repeat: no-repeat;
+}
+
+.round-brand:hover {
+  border: 4px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        #25258c 0deg,
+        #25258c 90deg,
+        #ff4200 90deg,
+        #ff4200 270deg,
+        #00a9ea 270deg,
+        #00a9ea 360deg
+      )
+      border-box;
+}
+
+.line-brand {
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff4200 50.33%,
+    #25258c 50.33%,
+    #25258c 80.66%,
+    #00a9ea 66.66%
+  );
+  border-image-slice: 1;
+  background-image: linear-gradient(to bottom, #ffff 65%, #eaeaea);
+}
+
+.label-product {
+  left: 0px;
+  background: rgb(225, 170, 29);
+  color: white;
+  font-weight: bold;
+  border-radius: 0px 15px 15px 0px;
+}
+
+.terviral {
+  z-index: 5;
+}
+
+.terlaris {
+  left: 60px !important;
+  width: 80px;
+  background-color: #00a9ea !important;
+}
+
+.viral-bg-wrap {
+  background-image: url('../images/bg-viral.png');
+  background-size: 100% 70%;
+  background-repeat: no-repeat;
+}
+
+.masuk-btn:hover {
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 81deg,
+        #ff4200 0deg,
+        #ff4200 198deg,
+        #25258c 199deg,
+        #25258c 350deg,
+        #00a9ea 351deg,
+        #00a9ea 360deg
+      )
+      border-box;
+}
+
+.product:hover .title-product {
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 81deg,
+        #ff4200 0deg,
+        #ff4200 198deg,
+        #25258c 199deg,
+        #25258c 350deg,
+        #00a9ea 351deg,
+        #00a9ea 360deg
+      )
+      border-box;
+  transform: scale(1.1);
+}
+
+.banner-btn {
+  position: absolute;
+  height: 25%;
+  left: 3%;
+  bottom: 3%;
+  padding: 0;
+  z-index: 1;
+  width: 27%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b3b3b3;
+  text-align: center;
+  border: 0;
+  background-color: transparent;
+  font-size: 27px;
+}
+
+.banner-btn:hover {
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 81deg,
+        #ff4200 0deg,
+        #ff4200 198deg,
+        #25258c 199deg,
+        #25258c 350deg,
+        #00a9ea 351deg,
+        #00a9ea 360deg
+      )
+      border-box;
+}
+
+.inbox-hover:hover {
+  content: url('../images/icons/inbox/inbox-on.svg');
+}
+
+.notif-hover:hover {
+  content: url('../images/icons/notif/lonceng-on.svg');
+}
+
+.cart-hover:hover {
+  content: url('../images/icons/cart/cart-on.svg');
+}
+
+.wishlist-hover:hover {
+  content: url('../images/icons/wishlist/wishlist-on.svg');
+}
+
+.kitchen {
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff4200 50.33%,
+    #25258c 50.33%,
+    #25258c 80.66%,
+    #00a9ea 66.66%
+  );
+  border-image-slice: 1;
+}
+
+.kitchen-content {
+  ackground-color: #fff;
+  position: relative;
+  width: 100%;
+  height: 337px;
+  border: 1px solid #ddd;
+}
+
+.kitchen-btn {
+  position: absolute;
+  height: 15%;
+  bottom: 7%;
+  padding: 0;
+  z-index: 1;
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent;
+  font-size: 27px;
+}
+
+.kitchen-btn:hover {
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 81deg,
+        #ff4200 0deg,
+        #ff4200 198deg,
+        #25258c 199deg,
+        #25258c 350deg,
+        #00a9ea 351deg,
+        #00a9ea 360deg
+      )
+      border-box;
+}
+
+.search-input:hover {
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 90deg,
+        #ff4200 180deg,
+        #25258c 0deg,
+        #25258c 352deg,
+        #00a9ea 248deg
+      )
+      border-box;
+}
+
+.search-input:focus {
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 90deg,
+        #ff4200 180deg,
+        #25258c 0deg,
+        #25258c 352deg,
+        #00a9ea 248deg
+      )
+      border-box;
+}

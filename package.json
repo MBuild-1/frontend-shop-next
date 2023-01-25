@@ -3,24 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "prettier": "prettier --write .",
     "check-format": "prettier --check .",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "prettier --write .",
-    "test-all": "npm run check-format && npm run check-lint && npm run build",
-    "prepare": "husky install"
+    "test-all": "npm run check-format && npm run check-lint && npm run build"
   },
   "dependencies": {
     "@next/font": "13.1.2",
     "classnames": "^2.3.2",
+    "flowbite": "^1.6.2",
+    "flowbite-react": "^0.3.7",
     "next": "13.1.2",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.7.1"
+    "react-icons": "^4.7.1",
+    "swiper": "^8.4.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
@@ -29,7 +31,6 @@
     "eslint-config-next": "^13.1.2",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.1",
-    "husky": "^8.0.0",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
     "tailwindcss": "^3.2.4"

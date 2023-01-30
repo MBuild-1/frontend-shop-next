@@ -8,7 +8,7 @@ import CartIcon from 'images/icons/cart/cart-off.svg';
 
 export function Navbar() {
   return (
-    <nav className="border-gray-200 px-2 sm:px-4 py-2.5 bg-[#F8F9FA]">
+    <nav className="w-full fixed z-50 top-0 border-gray-200 px-2 sm:px-4 py-2.5 bg-[#F8F9FA]">
       <div className="container flex flex-wrap items-center mx-2">
         <Link href={'/'} passHref>
           <Image
@@ -36,8 +36,8 @@ export function Navbar() {
             <input
               type="search"
               name="search"
-              placeholder="Cari barang disini"
-              className="w-[49rem] h-[2.4rem] border-gray-300 rounded-md search-input"
+              placeholder="Cari barang disini..."
+              className="w-[49rem] h-[2.4rem] p-3 border-2 border-gray-300 rounded-md search-input"
             />
           </form>
         </div>

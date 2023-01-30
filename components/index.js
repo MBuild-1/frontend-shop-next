@@ -7,3 +7,7 @@ export * from './Section/ViralCategory';
 export * from './Section/FareCheckBanner';
 export * from './Section/KitchenBanner';
 export * from './Section/SnackCategory';
+export * from './Section/SeasonsBanner';
+export * from './Section/ReelsSlider';
+export * from './Section/HandicraftBanner';
+export * from './Section/CoffeTeaCategory';

@@ -228,6 +228,22 @@ body {
       border-box;
 }
 
+.season {
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff4200 50.33%,
+    #25258c 50.33%,
+    #25258c 80.66%,
+    #00a9ea 66.66%
+  );
+  border-image-slice: 1;
+}
+
+.bundle-season {
+  width: 285px;
+}
+
 .search-input:hover {
   border: 2px solid transparent;
   background: linear-gradient(#fff, #fff) padding-box,
@@ -252,4 +268,34 @@ body {
         #00a9ea 248deg
       )
       border-box;
+}
+
+.reels {
+  background-color: #eaeaea;
+  position: relative;
+  height: 580px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.reels-section {
+  width: 50%;
+  height: 100%;
+  animation: 2s ease 0s 1 normal forwards running reelsAnimationOut;
+}
+
+.reels .reels-section {
+  background-color: #ff4200;
+  color: white;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.reels-card {
+  width: 78%;
+  position: absolute;
+  left: 22%;
+  bottom: 8%;
 }

@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import { ThemeProvider } from 'next-themes';
 import '@/styles/styles.css';
+import 'swiper/css/bundle';
 
 export default function App({ Component, pageProps }) {
   return (

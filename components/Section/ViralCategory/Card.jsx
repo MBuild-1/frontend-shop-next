@@ -28,7 +28,7 @@ const Card = () => {
                 1.5 <span className="font-normal">Kg</span>
               </p>
             </div>
-            <div className="p-2 mt-2 flex justify-between">
+            <div className="p-2 mt-2 flex justify-between items-center">
               <div className="w-[48px] h-[48px]">
                 <img
                   className="wishlist-hover"

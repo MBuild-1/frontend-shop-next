@@ -8,6 +8,10 @@ import {
   FareCheckBanner,
   KitchenBanner,
   SnackCategory,
+  SeasonsBanner,
+  ReelsSlider,
+  HandicraftBanner,
+  CoffeTeaCategory,
 } from '../components';
 
 export default function Home() {
@@ -21,6 +25,10 @@ export default function Home() {
       <FareCheckBanner />
       <KitchenBanner />
       <SnackCategory />
+      <SeasonsBanner />
+      <ReelsSlider />
+      <HandicraftBanner />
+      <CoffeTeaCategory />
     </>
   );
 }

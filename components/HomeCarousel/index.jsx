@@ -13,10 +13,11 @@ import { Autoplay, Navigation } from 'swiper';
 
 export function HomeCarousel() {
   return (
-    <div className="mx-12 my-2">
+    <div className="mx-12 mb-2 mt-20">
       <Swiper
         autoplay={{ delay: 3000 }}
         navigation={true}
+        loop={true}
         modules={[Autoplay, Navigation]}
         className="homeCarousel"
       >

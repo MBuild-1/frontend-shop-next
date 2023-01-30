@@ -16,6 +16,7 @@ export function FareCheckBanner() {
     <div className="mx-12 my-2 relative">
       <Swiper
         autoplay={{ delay: 5000 }}
+        loop={true}
         modules={[Autoplay]}
         className="homeCarousel"
       >

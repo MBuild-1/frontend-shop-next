@@ -1,59 +1,62 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-// import './styles.css';
-// import '../../styles/styles.css';
-// import required modules
-import { Autoplay, Navigation } from 'swiper';
+import { Autoplay } from 'swiper';
 
-export function HomeCarousel() {
+import Banner1 from '../../images/banners/banner-web-1.png';
+import Banner2 from '../../images/banners/banner-web-2.png';
+import Banner3 from '../../images/banners/banner-web-3.png';
+import Banner4 from '../../images/banners/banner-web-4.png';
+
+export const HomeCarousel = () => {
   return (
-    <div className="mx-12 mb-2 mt-20">
+    <div className="sm:mb-4 mt-[8.4rem] sm:mt-[5rem]">
       <Swiper
         autoplay={{ delay: 3000 }}
-        navigation={true}
         loop={true}
-        modules={[Autoplay, Navigation]}
+        modules={[Autoplay]}
         className="homeCarousel"
       >
         <SwiperSlide>
           <Link href={'#'} passHref>
-            <img
-              src="http://masterbagasi.com:8081/image/uploads/banner/202211292059WhatsApp%20Image%202022-11-30%20at%203.47.50%20AM.jpeg"
-              alt="content-1"
+            <Image
+              className="border-6 border-white"
+              src={Banner1}
+              alt={'Banner-1'}
             />
-            {/* <Image
-              src={
-                'http://masterbagasi.com:8081/image/uploads/banner/202211292059WhatsApp%20Image%202022-11-30%20at%203.47.50%20AM.jpeg'
-              }
-              alt={'Carousel Content'}
-              width={140}
-              height={140}
-            /> */}
           </Link>
         </SwiperSlide>
         <SwiperSlide>
           <Link href={'#'} passHref>
-            <img
-              src="http://masterbagasi.com:8081/image/uploads/banner/202211292059WhatsApp%20Image%202022-11-30%20at%203.43.58%20AM.jpeg"
-              alt="content-2"
+            <Image
+              className="border-6 border-white"
+              src={Banner2}
+              alt={'Banner-1'}
             />
-            {/* <Image
-              src={
-                'http://masterbagasi.com:8081/image/uploads/banner/202211292059WhatsApp%20Image%202022-11-30%20at%203.47.50%20AM.jpeg'
-              }
-              alt={'Carousel Content'}
-              width={140}
-              height={140}
-            /> */}
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Link href={'#'} passHref>
+            <Image
+              className="border-6 border-white"
+              src={Banner3}
+              alt={'Banner-1'}
+            />
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Link href={'#'} passHref>
+            <Image
+              className="border-6 border-white"
+              src={Banner4}
+              alt={'Banner-1'}
+            />
           </Link>
         </SwiperSlide>
       </Swiper>
     </div>
   );
-}
+};

@@ -11,3 +11,8 @@ export * from './Section/SeasonsBanner';
 export * from './Section/ReelsSlider';
 export * from './Section/HandicraftBanner';
 export * from './Section/CoffeTeaCategory';
+// export * from './Section/CategoryMap';
+export * from './Section/MediaContent';
+export * from './Section/RecommendCategory';
+export * from './Section/ShippingReview';
+export * from './Footer';

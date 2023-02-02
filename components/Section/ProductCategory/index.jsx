@@ -6,13 +6,18 @@ import Card from './Card';
 
 export const ProductCategory = () => {
   return (
-    <div className="mx-12 my-4 cat-bg-wrap">
-      <p className="text-[2.5rem] px-6 py-2 font-semibold">
+    <div className="sm:mx-12 sm:my-2 cat-bg-wrap">
+      <p className="text-xl sm:text-[2.5rem] px-4 py-2 font-semibold">
         Kategori Produk Indonesia
       </p>
       <Swiper
-        className="min-h-[300px]"
-        slidesPerView={5}
+        className="sm:min-h-[290px] min-h-[170px]"
+        slidesPerView={2.5}
+        breakpoints={{
+          600: {
+            slidesPerView: 5,
+          },
+        }}
         navigation={true}
         modules={[Navigation]}
       >

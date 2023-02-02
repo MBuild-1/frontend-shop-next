@@ -11,9 +11,9 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay } from 'swiper';
 
-export function FareCheckBanner() {
+export const FareCheckBanner = () => {
   return (
-    <div className="mx-12 my-2 relative">
+    <div className="sm:mx-12 my-2 relative">
       <Swiper
         autoplay={{ delay: 5000 }}
         loop={true}
@@ -87,10 +87,10 @@ export function FareCheckBanner() {
       </Swiper>
       <button
         type="button"
-        className="banner-btn font-bold hover:text-stone-700"
+        className="banner-btn sm:text-[27px] text-[7px] font-bold hover:text-stone-700"
       >
         Cek Tarif Ke Negara Lainnya
       </button>
     </div>
   );
-}
+};

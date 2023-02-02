@@ -42,9 +42,24 @@ body {
 } */
 
 .cat-bg-wrap {
-  background-image: url('../images/bg-category.png');
-  background-size: 100% 70%;
+  background-image: url('../images/background/produk.png');
+  background-size: 100% 60%;
   background-repeat: no-repeat;
+}
+
+.brand-bg-wrap {
+  background-image: url('../images/background/brand.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 460px) {
+  .cat-bg-wrap {
+    background-size: 100% 60%;
+  }
+  .brand-bg-wrap {
+    background-size: 100% 100%;
+  }
 }
 
 .round-brand:hover {
@@ -71,7 +86,6 @@ body {
     #00a9ea 66.66%
   );
   border-image-slice: 1;
-  background-image: linear-gradient(to bottom, #ffff 65%, #eaeaea);
 }
 
 .label-product {
@@ -83,7 +97,8 @@ body {
 }
 
 .terviral {
-  z-index: 5;
+  background-image: url('../images/background/badge-orange.png');
+  background-size: 100%;
 }
 
 .terlaris {
@@ -93,9 +108,37 @@ body {
 }
 
 .viral-bg-wrap {
-  background-image: url('../images/bg-viral.png');
+  background-image: url('../images/background/viral.png');
   background-size: 100% 70%;
   background-repeat: no-repeat;
+}
+
+.snack-bg-wrap {
+  background-image: url('../images/background/snack.png');
+  background-size: 100% 70%;
+  background-repeat: no-repeat;
+}
+
+.ct-bg-wrap {
+  background-image: url('../images/background/ct.png');
+  background-size: 100% 70%;
+  background-repeat: no-repeat;
+}
+
+.recommend-bg-wrap {
+  background-image: url('../images/background/recommend.png');
+  background-size: 100% 70%;
+  background-repeat: no-repeat;
+}
+
+.bg-navy {
+  background-image: url('../images/background/badge-navy.png');
+  background-size: 100%;
+}
+
+.bg-orange {
+  background-image: url('../images/background/badge-orange.png');
+  background-size: 100%;
 }
 
 .masuk-btn:hover {
@@ -144,7 +187,6 @@ body {
   text-align: center;
   border: 0;
   background-color: transparent;
-  font-size: 27px;
 }
 
 .banner-btn:hover {
@@ -191,26 +233,38 @@ body {
 }
 
 .kitchen-content {
-  ackground-color: #fff;
+  background-color: #fff;
   position: relative;
   width: 100%;
-  height: 337px;
   border: 1px solid #ddd;
 }
 
 .kitchen-btn {
-  position: absolute;
-  height: 15%;
-  bottom: 7%;
-  padding: 0;
-  z-index: 1;
-  width: 18%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background-color: transparent;
   font-size: 27px;
+}
+
+.handicraft {
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff4200 50.33%,
+    #25258c 50.33%,
+    #25258c 80.66%,
+    #00a9ea 66.66%
+  );
+  border-image-slice: 1;
+}
+
+.handicraft-content {
+  background-color: #fff;
+  position: relative;
+  width: 100%;
+  border: 1px solid #ddd;
 }
 
 .kitchen-btn:hover {
@@ -238,10 +292,6 @@ body {
     #00a9ea 66.66%
   );
   border-image-slice: 1;
-}
-
-.bundle-season {
-  width: 285px;
 }
 
 .search-input:hover {
@@ -272,8 +322,6 @@ body {
 
 .reels {
   background-color: #eaeaea;
-  position: relative;
-  height: 580px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -298,4 +346,28 @@ body {
   position: absolute;
   left: 22%;
   bottom: 8%;
+}
+
+.card-review {
+  transition: 0.4s ease all;
+}
+
+.card-review:hover {
+  transform: scale(1.1);
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 81deg,
+        #ff4200 0deg,
+        #ff4200 198deg,
+        #25258c 199deg,
+        #25258c 350deg,
+        #00a9ea 351deg,
+        #00a9ea 360deg
+      )
+      border-box;
+}
+
+.testi-swiper {
+  background: linear-gradient(to bottom, #ccc, #eaeaea);
 }

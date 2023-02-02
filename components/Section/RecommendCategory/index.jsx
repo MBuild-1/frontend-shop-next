@@ -4,12 +4,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Card from './Card';
 
-export const SnackCategory = () => {
+export const RecommendCategory = () => {
   return (
-    <div className="sm:mx-12 my-2 snack-bg-wrap">
+    <div className="sm:mx-12 sm:my-4 recommend-bg-wrap">
       <div className="flex justify-between pt-3 pl-5 sm:py-2 sm:px-4">
         <p className="sm:text-[2rem] sm:pl-4 text-white font-semibold">
-          Cemilan Buat Rebahan
+          Hanya Untuk Kamu
         </p>
         <button
           type="button"
@@ -21,7 +21,7 @@ export const SnackCategory = () => {
       <div className="my-3">
         <Swiper
           className="sm:min-h-[280px] min-h-[220px]"
-          slidesPerView={3}
+          slidesPerView={2}
           breakpoints={{
             600: {
               slidesPerView: 5,

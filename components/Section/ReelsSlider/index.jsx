@@ -6,10 +6,19 @@ import Card from './Card';
 
 export const ReelsSlider = () => {
   return (
-    <div className="my-4 mx-12 py-4 reels">
+    <div className="relative sm:my-4 my-2 sm:mx-12 py-4 sm:h-[580px] h-[300px] bg-[#eaeaea] reels">
       <div className="reels-section relative"></div>
       <div className="reels-card">
-        <Swiper slidesPerView={4} navigation={true} modules={[Navigation]}>
+        <Swiper
+          slidesPerView={2.5}
+          breakpoints={{
+            600: {
+              slidesPerView: 4,
+            },
+          }}
+          navigation={true}
+          modules={[Navigation]}
+        >
           <SwiperSlide>
             <Card />
           </SwiperSlide>

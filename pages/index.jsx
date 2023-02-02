@@ -12,23 +12,35 @@ import {
   ReelsSlider,
   HandicraftBanner,
   CoffeTeaCategory,
+  CategoryMap,
+  MediaContent,
+  RecommendCategory,
+  ShippingReview,
+  Footer,
 } from '../components';
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <HomeCarousel />
-      <ProductCategory />
-      <BrandCategory />
-      <ViralCategory />
-      <FareCheckBanner />
-      <KitchenBanner />
-      <SnackCategory />
-      <SeasonsBanner />
-      <ReelsSlider />
-      <HandicraftBanner />
-      <CoffeTeaCategory />
+      <div className="max-w-[1500px] mx-auto">
+        <HomeCarousel />
+        <ProductCategory />
+        <BrandCategory />
+        <ViralCategory />
+        <FareCheckBanner />
+        <KitchenBanner />
+        <SnackCategory />
+        <SeasonsBanner />
+        <ReelsSlider />
+        <HandicraftBanner />
+        <CoffeTeaCategory />
+        {/* <CategoryMap /> */}
+        <MediaContent />
+        <RecommendCategory />
+        <ShippingReview />
+      </div>
+      <Footer />
     </>
   );
 }

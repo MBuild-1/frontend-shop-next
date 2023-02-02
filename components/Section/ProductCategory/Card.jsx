@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Card = () => {
   return (
-    <div className="mx-4">
+    <div className="sm:mx-4 mx-2">
       <Link href={''} passHref className="product">
         <div className="w-auto">
           <img
@@ -10,7 +10,7 @@ const Card = () => {
             alt="..."
           />
         </div>
-        <div className="text-center bg-[#eee] leading-8 title-product">
+        <div className="text-center bg-[#eee] text-xs sm:text-base leading-6 sm:leading-8 title-product">
           <p>Title Product</p>
         </div>
       </Link>

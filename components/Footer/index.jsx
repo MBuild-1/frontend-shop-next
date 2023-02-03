@@ -124,7 +124,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="text-center font-semibold p-4 text-[#75757D] bg-[#EBECED]">
-        © 2022 - 2023, PT BHK
+        © 2023, PT BHK
       </div>
     </div>
   );

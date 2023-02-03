@@ -36,7 +36,7 @@ const Card = () => {
               <div>
                 <button
                   type="button"
-                  className="text-[#ff4200]  border-[2px] border-[#ff4200] font-bold rounded text-xs sm:text-lg sm:px-6 sm:py-1  hover:text-white hover:bg-[#ff4200] hover:border-[#FF4200]"
+                  className="text-[#ff4200] border-[2px] border-[#ff4200] font-bold rounded text-xs sm:text-lg sm:px-6 sm:py-1 hover:text-white hover:bg-[#ff4200] hover:border-[#FF4200]"
                 >
                   + Keranjang
                 </button>

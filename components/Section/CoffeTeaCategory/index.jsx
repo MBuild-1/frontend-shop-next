@@ -6,7 +6,7 @@ import Card from './Card';
 
 export const CoffeTeaCategory = () => {
   return (
-    <div className="sm:mx-12 sm:my-4 my-2 ct-bg-wrap">
+    <div className="sm:mx-12 my-2 ct-bg-wrap">
       <div className="flex justify-between pt-3 pl-5 sm:py-2 sm:px-4">
         <p className="sm:text-[2rem] sm:pl-4 text-white font-semibold">
           Kopi & Teh Asli Indonesia
@@ -21,7 +21,7 @@ export const CoffeTeaCategory = () => {
       <div className="my-3">
         <Swiper
           className="sm:min-h-[280px] min-h-[220px]"
-          slidesPerView={2}
+          slidesPerView={3}
           breakpoints={{
             600: {
               slidesPerView: 5,

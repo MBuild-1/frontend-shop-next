@@ -371,3 +371,55 @@ body {
 .testi-swiper {
   background: linear-gradient(to bottom, #ccc, #eaeaea);
 }
+
+.btn-slide {
+  border: 2px solid #ebe1e1;
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 0 0 #ffffffc3;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.slide-right:hover {
+  box-shadow: inset 550px 0 0 0 #ffffff70;
+}
+
+.dash {
+  width: 30%;
+}
+
+.dash line {
+  stroke: #454545;
+  stroke-dasharray: 0;
+  stroke-linecap: round;
+}
+
+.eyeshow {
+  background-image: url('../images/icons/eye/eyeshow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 30px;
+  width: 30px;
+}
+
+.eyehide {
+  background-image: url('../images/icons/eye/eyehide.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 30px;
+  width: 30px;
+}
+
+.field-icon {
+  position: relative;
+  float: right;
+  margin-top: -48px;
+  margin-right: 20px;
+  z-index: 5;
+}

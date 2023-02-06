@@ -6,14 +6,14 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Autoplay } from 'swiper';
 
-import Banner1 from '../../images/banners/banner-web-1.png';
-import Banner2 from '../../images/banners/banner-web-2.png';
-import Banner3 from '../../images/banners/banner-web-3.png';
-import Banner4 from '../../images/banners/banner-web-4.png';
+import Banner1 from '../../../images/banners/banner-web-1.png';
+import Banner2 from '../../../images/banners/banner-web-2.png';
+import Banner3 from '../../../images/banners/banner-web-3.png';
+import Banner4 from '../../../images/banners/banner-web-4.png';
 
 export const HomeCarousel = () => {
   return (
-    <div className="sm:mb-4 mt-[8.4rem] sm:mt-[5rem]">
+    <div className="sm:mb-4 mt-[8.4rem] lg:mt-[4.5rem]">
       <Swiper
         autoplay={{ delay: 3000 }}
         loop={true}

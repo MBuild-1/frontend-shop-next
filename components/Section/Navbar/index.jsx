@@ -8,11 +8,16 @@ import CartIcon from 'images/icons/cart/cart-off.svg';
 
 export const Navbar = () => {
   return (
-    <nav className="w-full fixed z-50 -top-1 border-gray-200 px-2 py-10 sm:px-6 sm:py-3  bg-[#F8F9FA]">
+    <nav className="w-full fixed z-50 -top-1 border-gray-200 px-2 py-10 lg:px-6 lg:py-2 md:px-3 md:py-3  bg-[#F8F9FA]">
       <div className="flex justify-between items-center">
-        <div className="flex absolute w-full top-1 sm:relative sm:w-64 sm:h-9 sm:bottom-0">
+        <div className="flex absolute w-full top-1 lg:top-0 lg:relative lg:w-64 lg:h-9 md:relative md:w-[16rem] lg:bottom-0">
           <Link href={'/'} passHref>
-            <Image src={LogoMB} alt={'Logo Masterbagasi'} />
+            <Image
+              src={LogoMB}
+              alt={'Logo Masterbagasi'}
+              width={140}
+              height={140}
+            />
           </Link>
           <Link
             href={'#'}
@@ -39,11 +44,11 @@ export const Navbar = () => {
                 width={25}
                 height={25}
               />
-              <div className="flex sm:flex-col gap-2 sm:gap-0 items-center sm:items-start">
-                <p className="text-[0.7rem] text-[#898989] group-hover:text-black">
+              <div className="flex lg:flex-col md:flex-col gap-2 lg:gap-0 md:gap-1 items-center lg:items-start md:items-start">
+                <p className="text-[0.7rem] lg:text-[0.7rem] md:text-[0.7rem] text-[#898989] group-hover:text-black">
                   Dikirim ke
                 </p>
-                <p className="sm:text-[1rem] font-bold text-[#898989] group-hover:text-[#FF4200]">
+                <p className="text-[0.9rem] lg:text-[0.9rem] md:text-[0.8rem] font-bold text-[#898989] group-hover:text-[#FF4200]">
                   Pilih Negara
                 </p>
               </div>
@@ -56,14 +61,14 @@ export const Navbar = () => {
               type="search"
               name="search"
               placeholder="Cari barang disini..."
-              className="w-[95vw] h-[2.5rem] sm:w-[50rem] sm:h-[2.5rem] p-3 border-2 border-gray-300 rounded-md search-input"
+              className="w-[23.4rem] h-[2.5rem] lg:w-[50rem] md:w-[18rem] p-3 border-2 border-gray-300 rounded-md search-input"
             />
           </form>
         </div>
         <div className="flex items-center">
-          <div className="relative left-[19rem] bottom-10 sm:left-0 sm:bottom-0">
-            <ul className="flex sm:border-r-2">
-              <li className="mr-4">
+          <div className="relative left-[19rem] bottom-10 md:left-0 md:bottom-0">
+            <ul className="flex md:border-r-2">
+              <li className="lg:mr-4 md:mr-2">
                 <Link href={'#'} passHref>
                   <Image
                     src={InboxIcon}
@@ -74,7 +79,7 @@ export const Navbar = () => {
                   />
                 </Link>
               </li>
-              <li className="mr-4">
+              <li className="lg:mr-4 md:mr-1">
                 <Link href={'#'} passHref>
                   <Image
                     src={BellIcon}
@@ -85,7 +90,7 @@ export const Navbar = () => {
                   />
                 </Link>
               </li>
-              <li className="mr-4">
+              <li className="lg:mr-4 md:mr-2">
                 <Link href={'#'} passHref>
                   <Image
                     src={CartIcon}
@@ -100,13 +105,13 @@ export const Navbar = () => {
           </div>
           <button
             type="button"
-            className="relative ml-[2rem] mt-2 text-black font-bold border-[3px] border-[#DDDDDD] sm:border-[#DDDDDD] rounded text-sm px-4 sm:px-7 py-[5px] text-center mr-2 mb-2 masuk-btn -left-[14rem] bottom-10 sm:bottom-0 sm:left-0"
+            className="relative lg:ml-[1.5rem] md:ml-[0.8rem] mt-2 text-black font-bold border-[3px] border-[#DDDDDD] sm:border-[#DDDDDD] rounded text-sm px-4 lg:px-7 md:px-3 py-[5px] text-center mr-2 mb-2 ml-14 masuk-btn -left-[13rem] bottom-10 lg:bottom-0 md:bottom-0 lg:left-0 md:left-0"
           >
             Masuk
           </button>
           <button
             type="button"
-            className="hidden md:block mt-2 text-white bg-[#B3B3B3] font-bold border-[3px] border-[#B3B3B3] rounded text-sm px-7 py-[5px] text-center mr-2 mb-2 hover:bg-[#FF4200] hover:border-[#FF4200]"
+            className="hidden md:block mt-2 text-white bg-[#B3B3B3] font-bold border-[3px] border-[#B3B3B3] rounded text-sm lg:px-7 md:px-3 py-[5px] text-center lg:mr-2 lg:mb-2 md:mb-2 hover:bg-[#FF4200] hover:border-[#FF4200]"
           >
             Daftar
           </button>

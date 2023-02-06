@@ -1,0 +1,90 @@
+{
+  "category": [
+    { "image": "", "title": "kategori 1", "slug": "kategori-1" },
+    { "image": "", "title": "kategori 2", "slug": "kategori-2" },
+    { "image": "", "title": "kategori 3", "slug": "kategori-3" },
+    { "image": "", "title": "kategori 4", "slug": "kategori-4" },
+    { "image": "", "title": "kategori 5", "slug": "kategori-5" },
+    { "image": "", "title": "kategori 6", "slug": "kategori-6" },
+    { "image": "", "title": "kategori 7", "slug": "kategori-7" },
+    { "image": "", "title": "kategori 8", "slug": "kategori-8" },
+    { "image": "", "title": "kategori 9", "slug": "kategori-9" },
+    { "image": "", "title": "kategori 10", "slug": "kategori-10" },
+    { "image": "", "title": "kategori 11", "slug": "kategori-11" },
+    { "image": "", "title": "kategori 12", "slug": "kategori-12" },
+    { "image": "", "title": "kategori 13", "slug": "kategori-13" },
+    { "image": "", "title": "kategori 14", "slug": "kategori-14" },
+    { "image": "", "title": "kategori 15", "slug": "kategori-15" },
+    { "image": "", "title": "kategori 16", "slug": "kategori-16" },
+    { "image": "", "title": "kategori 17", "slug": "kategori-17" },
+    { "image": "", "title": "kategori 18", "slug": "kategori-18" },
+    { "image": "", "title": "kategori 19", "slug": "kategori-19" },
+    { "image": "", "title": "kategori 20", "slug": "kategori-20" }
+  ],
+  "brand": [
+    { "image": "", "title": "brand 1", "slug": "brand-1" },
+    { "image": "", "title": "brand 2", "slug": "brand-2" },
+    { "image": "", "title": "brand 3", "slug": "brand-3" },
+    { "image": "", "title": "brand 4", "slug": "brand-4" },
+    { "image": "", "title": "brand 5", "slug": "brand-5" },
+    { "image": "", "title": "brand 6", "slug": "brand-6" },
+    { "image": "", "title": "brand 7", "slug": "brand-7" },
+    { "image": "", "title": "brand 8", "slug": "brand-8" },
+    { "image": "", "title": "brand 9", "slug": "brand-9" },
+    { "image": "", "title": "brand 10", "slug": "brand-10" },
+    { "image": "", "title": "brand 11", "slug": "brand-11" },
+    { "image": "", "title": "brand 12", "slug": "brand-12" },
+    { "image": "", "title": "brand 13", "slug": "brand-13" },
+    { "image": "", "title": "brand 14", "slug": "brand-14" },
+    { "image": "", "title": "brand 15", "slug": "brand-15" },
+    { "image": "", "title": "brand 16", "slug": "brand-16" },
+    { "image": "", "title": "brand 17", "slug": "brand-17" },
+    { "image": "", "title": "brand 18", "slug": "brand-18" },
+    { "image": "", "title": "brand 19", "slug": "brand-19" },
+    { "image": "", "title": "brand 20", "slug": "brand-20" }
+  ],
+  "product": [
+    {
+      "image": "",
+      "title": "product 1",
+      "price": "1500000",
+      "weight": "1.5"
+    },
+    {
+      "image": "",
+      "title": "product 2",
+      "price": "2500000",
+      "weight": "3.5"
+    },
+    {
+      "image": "",
+      "title": "product 3",
+      "price": "3500000",
+      "weight": "5.5"
+    },
+    {
+      "image": "",
+      "title": "product 4",
+      "price": "500000",
+      "weight": "1.7"
+    },
+    {
+      "image": "",
+      "title": "product 5 Ngetest Bisa Sepanjang Apasih?",
+      "price": "900000",
+      "weight": "10.5"
+    },
+    {
+      "image": "",
+      "title": "product 6 Ngetest Bisa Sepanjang Apasih?",
+      "price": "700000",
+      "weight": "10.5"
+    },
+    {
+      "image": "",
+      "title": "product 7 Ngetest Bisa Sepanjang Apasih?",
+      "price": "300000",
+      "weight": "10.5"
+    }
+  ]
+}

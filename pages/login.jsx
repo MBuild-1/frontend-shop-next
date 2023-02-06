@@ -8,8 +8,8 @@ const Login = () => {
   const [show, setShow] = useState(false);
 
   return (
-    <div className="login-page">
-      <div className="container mx-auto sm:px-28 py-4">
+    <div className="mx-2">
+      <div className="container mx-auto lg:px-28 py-4">
         <Link href={'/'} passHref>
           <Image
             src={LogoMB}
@@ -18,7 +18,7 @@ const Login = () => {
             height={140}
           />
         </Link>
-        <div className="grid sm:grid-cols-2 sm:gap-2 gap-4">
+        <div className="grid lg:grid-cols-2 lg:gap-2 gap-4">
           <div className="relative w-full pt-4">
             <div className="text-center pt-[60%] px-3">
               <p className="font-bold text-[1.35rem] sm:text-4xl text-neutral-800 sm:mb-2 mb-1">

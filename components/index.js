@@ -1,6 +1,6 @@
 export * from './ThemeToggleButton';
-export * from './Navbar';
-export * from './HomeCarousel';
+export * from './Section/Navbar';
+export * from './Section/HomeCarousel';
 export * from './Section/ProductCategory';
 export * from './Section/BrandCategory';
 export * from './Section/ViralCategory';
@@ -15,4 +15,4 @@ export * from './Section/CoffeTeaCategory';
 export * from './Section/MediaContent';
 export * from './Section/RecommendCategory';
 export * from './Section/ShippingReview';
-export * from './Footer';
+export * from './Section/Footer';

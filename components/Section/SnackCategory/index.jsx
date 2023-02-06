@@ -2,9 +2,23 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Card from './Card';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import CardProduct from '@/components/CardProduct';
 
 export const SnackCategory = () => {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const res = await axios.get('http://localhost:8080/product');
+
+      setProduct(await res.data);
+    };
+
+    getProducts();
+  }, []);
+
   return (
     <div className="sm:mx-12 my-2 snack-bg-wrap">
       <div className="flex justify-between pt-3 pl-5 sm:py-2 sm:px-4">
@@ -24,36 +38,25 @@ export const SnackCategory = () => {
           slidesPerView={3}
           breakpoints={{
             600: {
-              slidesPerView: 5,
+              slidesPerView: 6,
             },
           }}
           navigation={true}
           modules={[Navigation]}
         >
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
+          {product.map(({ image, title, price, weight, slug }, i) => (
+            <SwiperSlide key={i}>
+              <CardProduct
+                key={i}
+                label={'Terlaris'}
+                image={image}
+                title={title}
+                price={price}
+                weight={weight}
+                slug={slug}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

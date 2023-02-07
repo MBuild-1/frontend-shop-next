@@ -2,10 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LogoMB from 'images/icons/logo.svg';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
-import { useState } from 'react';
+import { useLogin } from '@/hooks/useLogin';
+import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
-const Login = () => {
+export default function Login() {
+  const { form, handleChange, handleSubmit, errors, isSubmit } = useLogin();
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if ((errors.email || errors.password) !== undefined) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Authentication failed!',
+      });
+    }
+  }, [errors]);
 
   return (
     <div className="mx-2">
@@ -68,28 +80,29 @@ const Login = () => {
                   <line x1="-9" x2="39"></line>
                 </svg>
               </div>
-              <form>
+              <form onSubmit={handleSubmit} method={'POST'}>
                 <div class="relative z-0 w-full mb-3 group">
                   <input
                     type="email"
-                    name="floating_email"
-                    id="floating_email"
+                    value={form.email}
+                    onChange={handleChange}
+                    name={'email'}
+                    id={'email'}
                     class="block py-5 px-3 w-full text-gray-900 bg-transparent border-2 rounded-lg border-[#CED4DA] appearance-none dark:text-black dark:focus:border-[#ff4200] focus:outline-none focus:ring-0 focus:border-[#ff4200] peer"
                     placeholder=" "
                     required
                   />
-                  <label
-                    for="floating_email"
-                    class="px-4 peer-focus:font-medium absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-500 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-5"
-                  >
+                  <label class="px-4 peer-focus:font-medium absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-500 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-5">
                     Email address
                   </label>
                 </div>
                 <div class="relative z-0 w-full mb-4 group">
                   <input
                     type={show ? 'text' : 'password'}
-                    name="floating_password"
-                    id="floating_password"
+                    value={form.password}
+                    onChange={handleChange}
+                    name={'password'}
+                    id={'password'}
                     class="block py-5 px-3 w-full text-gray-900 bg-transparent border-2 rounded-lg border-[#CED4DA] appearance-none dark:text-black dark:focus:border-[#ff4200] focus:outline-none focus:ring-0 focus:border-[#ff4200] peer"
                     placeholder=" "
                     required
@@ -98,7 +111,7 @@ const Login = () => {
                     onClick={() => setShow(!show)}
                     type="button"
                     toggle="#password-popLogin2"
-                    class={
+                    className={
                       show
                         ? 'eyehide field-icon toggle-password'
                         : 'eyeshow field-icon toggle-password'
@@ -119,7 +132,6 @@ const Login = () => {
                         type="checkbox"
                         value=""
                         class="w-5 h-5 mt-1 ml-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                        required
                       />
                     </div>
                     <label for="terms" class="ml-2 text-md text-black">
@@ -130,13 +142,12 @@ const Login = () => {
                     Forgot Password?
                   </Link>
                 </div>
-                <Link
-                  href={'/'}
-                  passHref
+                <button
+                  type="submit"
                   className="flex w-full rounded-lg justify-center py-4 btn-slide slide-right font-bold text-white bg-[#FF4200]"
                 >
                   Login
-                </Link>
+                </button>
               </form>
               <p className="text-center mt-3 sm:text-xl text-lg text-neutral-500">
                 Dengan ini, saya menyetujui
@@ -176,6 +187,4 @@ const Login = () => {
       </div>
     </div>
   );
-};
-
-export default Login;
+}

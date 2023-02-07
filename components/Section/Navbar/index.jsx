@@ -103,18 +103,20 @@ export const Navbar = () => {
               </li>
             </ul>
           </div>
-          <button
-            type="button"
-            className="relative lg:ml-[1.5rem] md:ml-[0.8rem] mt-2 text-black font-bold border-[3px] border-[#DDDDDD] sm:border-[#DDDDDD] rounded text-sm px-4 lg:px-7 md:px-3 py-[5px] text-center mr-2 mb-2 ml-14 masuk-btn -left-[13rem] bottom-10 lg:bottom-0 md:bottom-0 lg:left-0 md:left-0"
-          >
-            Masuk
-          </button>
-          <button
-            type="button"
-            className="hidden md:block mt-2 text-white bg-[#B3B3B3] font-bold border-[3px] border-[#B3B3B3] rounded text-sm lg:px-7 md:px-3 py-[5px] text-center lg:mr-2 lg:mb-2 md:mb-2 hover:bg-[#FF4200] hover:border-[#FF4200]"
-          >
-            Daftar
-          </button>
+          <div className="flex">
+            <button
+              type="button"
+              className="relative lg:ml-[1.5rem] md:ml-[0.8rem] mt-2 text-black font-bold border-[3px] border-[#DDDDDD] sm:border-[#DDDDDD] rounded text-sm px-4 lg:px-7 md:px-3 py-[5px] text-center mr-2 mb-2 ml-14 masuk-btn -left-[13rem] bottom-10 lg:bottom-0 md:bottom-0 lg:left-0 md:left-0"
+            >
+              Masuk
+            </button>
+            <button
+              type="button"
+              className="hidden md:block mt-2 text-white bg-[#B3B3B3] font-bold border-[3px] border-[#B3B3B3] rounded text-sm lg:px-7 md:px-3 py-[5px] text-center lg:mr-2 lg:mb-2 md:mb-2 hover:bg-[#FF4200] hover:border-[#FF4200]"
+            >
+              Daftar
+            </button>
+          </div>
         </div>
       </div>
     </nav>

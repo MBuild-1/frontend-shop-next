@@ -28,14 +28,14 @@ const CardProduct = ({ href = '#', image, label, title, price, weight }) => {
             <p className="lg:text-base lg:leading-5 text-xs leading-[0.8rem] lg:h-[6vh] h-[5vh]">
               {title}
             </p>
-            <div className="flex justify-between my-3">
-              <p className="lg:text-[1rem] text-xs font-bold">
+            <div className="flex justify-between lg:my-3 mt-3 mb-1">
+              <p className="lg:text-[1rem] text-[0.6rem] font-bold">
                 {new Intl.NumberFormat('id-ID', {
                   style: 'currency',
                   currency: 'IDR',
                 }).format(price)}
               </p>
-              <p className="font-bold text-xs">
+              <p className="font-bold lg:text-[0.8rem] text-[0.6rem]">
                 {weight} <span className="font-normal">Kg</span>
               </p>
             </div>

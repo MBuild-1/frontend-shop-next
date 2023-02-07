@@ -453,3 +453,11 @@ body {
   cursor: pointer;
   outline: none;
 }
+
+.hover-map:hover {
+  fill: #ff4200;
+}
+
+.hover-map:hover path {
+  fill: #ff4200;
+}

@@ -35,7 +35,7 @@ export default function Home() {
         <ReelsSlider />
         <HandicraftBanner />
         <CoffeTeaCategory />
-        {/* <CategoryMap /> */}
+        <CategoryMap />
         <MediaContent />
         <RecommendCategory />
         <ShippingReview />

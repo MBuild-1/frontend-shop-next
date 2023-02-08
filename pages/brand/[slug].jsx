@@ -1,20 +1,23 @@
 import { Footer, Navbar } from '@/components';
 import CardProduct from '@/components/CardProduct';
+import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { FaCaretDown } from 'react-icons/fa';
+import { FaStore, FaShareAlt, FaCaretDown } from 'react-icons/fa';
 
-const Category = () => {
-  const [category, setCategory] = useState([]);
+import DefaultImg from '../../images/default-picture.jpg';
+
+const Brand = ({ image, title, slug }) => {
+  const [brand, setBrand] = useState([]);
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const categories = await axios.get('http://localhost:8080/category');
+      const brands = await axios.get('http://localhost:8080/brand');
       const products = await axios.get('http://localhost:8080/product');
 
-      setCategory(await categories.data);
+      setBrand(await brands.data);
       setProduct(await products.data);
     };
 
@@ -25,9 +28,30 @@ const Category = () => {
     <>
       <Navbar />
       <div className="container px-6 mt-[4.5rem]">
-        <div className="bg-[#FF4200] h-[45vh]">
-          <div className="flex justify-start pl-5 pb-10 items-end h-full">
-            <p className="text-white font-semibold text-4xl">Category Name</p>
+        <div className="bg-pink-300 h-[30vh]">
+          <div className="flex justify-start items-center h-full gap-4 px-12">
+            <Image
+              className="rounded-full w-[170px]"
+              src={image ? image : DefaultImg}
+              alt={'Dummy'}
+            />
+            <div className="flex flex-col gap-4">
+              <div className="flex gap-2 items-center">
+                <div className="w-[30px] h-[30px] rounded-full bg-white"></div>
+                <p className="text-2xl text-white font-semibold">Brand Name</p>
+              </div>
+              <div className="flex gap-2">
+                <button className="btn border-2 border-transparent px-10 py-1 rounded font-semibold text-white hover:text-black bg-[#ff4200]">
+                  Favorit
+                </button>
+                <button className="btn border-2 border-transparent px-3 py-1 rounded text-white hover:text-black bg-[#ff4200]">
+                  <FaStore />
+                </button>
+                <button className="btn border-2 border-transparent px-3 py-1 rounded text-white hover:text-black bg-[#ff4200]">
+                  <FaShareAlt />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <div className="my-3">
@@ -41,7 +65,7 @@ const Category = () => {
                         <a href="/">Home</a>
                       </li>
                       <li>
-                        <span>Category Name</span>
+                        <span>Brand Name</span>
                       </li>
                     </ul>
                   </div>
@@ -65,8 +89,17 @@ const Category = () => {
                 </button>
               </div>
               <div className="block pb-2 pl-6">
-                {category.map(({ title }, i) => (
-                  <div key={i} className="py-1 hover:text-[#FF4200]">
+                {brand.map(({ title }, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center py-1 hover:text-[#FF4200]"
+                  >
+                    <input
+                      id="terms"
+                      type="checkbox"
+                      value=""
+                      class="w-5 h-5 mt-1 mx-4 ml-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                    />
                     <Link href={''} passHref>
                       {title}
                     </Link>
@@ -97,4 +130,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Brand;

@@ -2,16 +2,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LogoMB from 'images/icons/logo.svg';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
-import { useLogin } from '@/hooks/useLogin';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import { useRegister } from '@/hooks/useRegister';
 
-export default function Login() {
-  const { form, handleChange, handleSubmit, errors, isSubmit } = useLogin();
+export default function Register() {
+  const { form, handleSubmit, handleChange, errors, isSubmit } = useRegister();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if ((errors.email || errors.password) !== undefined) {
+    if (
+      (errors.name ||
+        errors.email ||
+        errors.password ||
+        errors.password_confirmation) !== undefined
+    ) {
       Swal.fire({
         icon: 'error',
         title: 'Authentication failed!',
@@ -45,12 +50,12 @@ export default function Login() {
           <div className="sm:p-1">
             <div className="w-full border-2 mx-auto sm:px-12 px-6 sm:py-4 py-2 sm:shadow-2xl">
               <p className="text-center font-bold sm:text-2xl text-xl">
-                Masuk ke Masterbagasi
+                Daftar Sekarang
               </p>
               <p className="text-center pt-1 mb-4 sm:text-xl text-neutral-500">
-                Belum punya akun Masterbagasi?{' '}
-                <Link href={'/register'} passHref className="text-[#ff4200]">
-                  Ayo Daftar
+                Sudah punya akun Masterbagasi?{' '}
+                <Link href={'/login'} passHref className="text-[#ff4200]">
+                  Masuk
                 </Link>
               </p>
               <Link
@@ -73,14 +78,29 @@ export default function Login() {
                 <svg class="dash" viewBox="-10 -1 50 1">
                   <line class="secondary" x1="-9" x2="39"></line>
                 </svg>
-                <p className="flex justify-center items-center text-xl">
-                  Master Bagasi
+                <p className="flex justify-center items-center lg:text-xl text-xs">
+                  atau daftar dengan
                 </p>
                 <svg class="dash" viewBox="-10 -1 50 1">
                   <line x1="-9" x2="39"></line>
                 </svg>
               </div>
               <form onSubmit={handleSubmit} method={'POST'}>
+                <div class="relative z-0 w-full mb-3 group">
+                  <input
+                    type="text"
+                    value={form.name}
+                    onChange={handleChange}
+                    name={'name'}
+                    id={'name'}
+                    class="block py-5 px-3 w-full text-gray-900 bg-transparent border-2 rounded-lg border-[#CED4DA] appearance-none dark:text-black dark:focus:border-[#ff4200] focus:outline-none focus:ring-0 focus:border-[#ff4200] peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label class="px-4 peer-focus:font-medium absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-500 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-5">
+                    Name
+                  </label>
+                </div>
                 <div class="relative z-0 w-full mb-3 group">
                   <input
                     type="email"
@@ -124,29 +144,39 @@ export default function Login() {
                     Password
                   </label>
                 </div>
-                <div class="flex justify-between mb-3">
-                  <div className="flex">
-                    <div class="flex items-center h-5">
-                      <input
-                        id="terms"
-                        type="checkbox"
-                        value=""
-                        class="w-5 h-5 mt-1 ml-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                      />
-                    </div>
-                    <label for="terms" class="ml-2 text-md text-black">
-                      Remember Password
-                    </label>
-                  </div>
-                  <Link href={'/'} passHref className="text-[#ff4200]">
-                    Forgot Password?
-                  </Link>
+                <div class="relative z-0 w-full mb-6 group">
+                  <input
+                    type={show ? 'text' : 'password'}
+                    value={form.password_confirmation}
+                    onChange={handleChange}
+                    name={'password_confirmation'}
+                    id={'password_confirmation'}
+                    class="block py-5 px-3 w-full text-gray-900 bg-transparent border-2 rounded-lg border-[#CED4DA] appearance-none dark:text-black dark:focus:border-[#ff4200] focus:outline-none focus:ring-0 focus:border-[#ff4200] peer"
+                    placeholder=" "
+                    required
+                  />
+                  <button
+                    onClick={() => setShow(!show)}
+                    type="button"
+                    toggle="#password-popLogin2"
+                    className={
+                      show
+                        ? 'eyehide field-icon toggle-password'
+                        : 'eyeshow field-icon toggle-password'
+                    }
+                  ></button>
+                  <label
+                    for="floating_password"
+                    class="px-4 peer-focus:font-medium absolute text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-5 scale-75 top-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-500 peer-focus:dark:text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-5"
+                  >
+                    Confirm Password
+                  </label>
                 </div>
                 <button
                   type="submit"
                   className="flex w-full rounded-lg justify-center py-4 btn-slide slide-right font-bold text-white bg-[#FF4200]"
                 >
-                  Login
+                  Daftar
                 </button>
               </form>
               <p className="text-center mt-3 sm:text-xl text-lg text-neutral-500">

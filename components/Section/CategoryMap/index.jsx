@@ -2,22 +2,32 @@
 // import { SVGMap } from 'react-svg-map';
 // import 'react-svg-map/lib/index.css';
 
+import Image from 'next/image';
+import Maskot from '../../../images/maskot-aceh.png';
+
 // import SvgMap from '../../../images/svg/map.svg';
 
 export const CategoryMap = () => {
   return (
     <div className="sm:mx-12 sm:my-4">
-      <p className="sm:text-[1.7rem] sm:py-2 sm:w-[25%] w-[52%] font-semibold border-b-[0.2rem] border-[#FF4200]">
-        Keliling Daerah Nusantara
+      <p className="sm:text-[1.7rem] sm:py-2 sm:w-[15%] w-[52%] font-bold">
+        Selamat Datang di Nusantara
       </p>
       <div className="sm:my-8 my-4">
         {/* <SvgMap /> */}
         {/* <SVGMap map={Indonesia} /> */}
         <div className="grid grid-cols-[35%_auto]">
-          <div>Map Icon</div>
-          <div>
+          <div className="pl-2 pt-2">
+            <Image
+              src={Maskot}
+              alt={'Logo Masterbagasi'}
+              width={350}
+              height={350}
+            />
+          </div>
+          <div className="relative right-24">
             <svg
-              width="900"
+              width="1000"
               height="357"
               viewBox="0 0 1000 357"
               fill="none"

@@ -48,7 +48,7 @@ export const CoffeTeaCategory = () => {
             <SwiperSlide key={i}>
               <CardProduct
                 key={i}
-                label={'Lagi Viral'}
+                label={'Terlaris'}
                 image={image}
                 title={title}
                 price={price}

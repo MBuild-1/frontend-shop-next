@@ -140,6 +140,21 @@ body {
   background-size: 100%;
 }
 
+.btn:hover {
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 81deg,
+        #ff4200 0deg,
+        #ff4200 198deg,
+        #25258c 199deg,
+        #25258c 350deg,
+        #00a9ea 351deg,
+        #00a9ea 360deg
+      )
+      border-box;
+}
+
 .masuk-btn:hover {
   border: 3px solid transparent;
   background: linear-gradient(#fff, #fff) padding-box,

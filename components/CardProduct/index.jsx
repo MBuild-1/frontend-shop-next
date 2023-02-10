@@ -2,10 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import DefaultImg from '../../images/default-picture.jpg';
 
-const CardProduct = ({ href = '#', image, label, title, price, weight }) => {
+const CardProduct = ({ image, label, title, price, weight, slug }) => {
   return (
     <div className="lg:mx-2 lg:mb-3 mx-1 border-2 shadow-md">
-      <Link href={href} passHref>
+      <Link href={`/detail_product/${slug}`} passHref>
         <Image
           src={image ? image : DefaultImg}
           alt={'Dummy'}

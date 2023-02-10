@@ -29,7 +29,7 @@ export const ProductCategory = () => {
         slidesPerView={2.5}
         breakpoints={{
           600: {
-            slidesPerView: 5,
+            slidesPerView: 5.5,
           },
         }}
         navigation={true}

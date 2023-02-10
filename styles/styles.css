@@ -8,6 +8,25 @@ body {
   height: 100%;
 }
 
+.swiperDetail {
+  height: 70%;
+  width: 100%;
+}
+
+.swiperDetail2 {
+  height: 25%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.swiperDetail2 .swiper-slide {
+  opacity: 0.4;
+}
+
+.swiperDetail2 .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
 /* .swiper-slide { */
 /* Center slide text vertically */
 /* display: -webkit-box;
@@ -333,6 +352,31 @@ body {
       )
       border-box;
 }
+.input:hover {
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 90deg,
+        #ff4200 180deg,
+        #25258c 0deg,
+        #25258c 352deg,
+        #00a9ea 248deg
+      )
+      border-box;
+}
+
+.input:focus {
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(
+        from 90deg,
+        #ff4200 180deg,
+        #25258c 0deg,
+        #25258c 352deg,
+        #00a9ea 248deg
+      )
+      border-box;
+}
 
 .reels {
   background-color: #eaeaea;
@@ -475,4 +519,31 @@ body {
 
 .hover-map:hover path {
   fill: #ff4200;
+}
+
+.btn-reduce {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid gray;
+  border-radius: 50%;
+}
+
+.btn-increase {
+  display: flex;
+  padding: 0px 7px;
+  border: 1px solid gray;
+  border-radius: 50%;
+}
+
+.btn-reduce:hover {
+  border-color: transparent;
+  background: #ff4200;
+  color: white;
+}
+
+.reply {
+  background-color: rgba(0, 0, 0, 0.05);
 }

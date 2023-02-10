@@ -5,19 +5,22 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaStore, FaShareAlt, FaCaretDown } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 
 import DefaultImg from '../../images/default-picture.jpg';
 
-const Brand = ({ image, title, slug }) => {
-  const [brand, setBrand] = useState([]);
+const Brand = ({ image }) => {
+  const [category, setCategory] = useState([]);
   const [product, setProduct] = useState([]);
+  const router = useRouter();
+  const { slug } = router.query;
 
   useEffect(() => {
     const getData = async () => {
-      const brands = await axios.get('http://localhost:8080/brand');
+      const categories = await axios.get('http://localhost:8080/category');
       const products = await axios.get('http://localhost:8080/product');
 
-      setBrand(await brands.data);
+      setCategory(await categories.data);
       setProduct(await products.data);
     };
 
@@ -27,7 +30,7 @@ const Brand = ({ image, title, slug }) => {
   return (
     <>
       <Navbar />
-      <div className="container px-6 mt-[4.5rem]">
+      <div className="container px-6 mt-[5rem]">
         <div className="bg-pink-300 h-[30vh]">
           <div className="flex justify-start items-center h-full gap-4 px-12">
             <Image
@@ -38,7 +41,7 @@ const Brand = ({ image, title, slug }) => {
             <div className="flex flex-col gap-4">
               <div className="flex gap-2 items-center">
                 <div className="w-[30px] h-[30px] rounded-full bg-white"></div>
-                <p className="text-2xl text-white font-semibold">Brand Name</p>
+                <p className="text-2xl text-white font-semibold">{slug}</p>
               </div>
               <div className="flex gap-2">
                 <button className="btn border-2 border-transparent px-10 py-1 rounded font-semibold text-white hover:text-black bg-[#ff4200]">
@@ -65,7 +68,7 @@ const Brand = ({ image, title, slug }) => {
                         <a href="/">Home</a>
                       </li>
                       <li>
-                        <span>Brand Name</span>
+                        <span>{slug}</span>
                       </li>
                     </ul>
                   </div>
@@ -89,7 +92,7 @@ const Brand = ({ image, title, slug }) => {
                 </button>
               </div>
               <div className="block pb-2 pl-6">
-                {brand.map(({ title }, i) => (
+                {category.map(({ title }, i) => (
                   <div
                     key={i}
                     className="flex items-center py-1 hover:text-[#FF4200]"

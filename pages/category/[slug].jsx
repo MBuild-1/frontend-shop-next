@@ -2,12 +2,15 @@ import { Footer, Navbar } from '@/components';
 import CardProduct from '@/components/CardProduct';
 import axios from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 
 const Category = () => {
   const [category, setCategory] = useState([]);
   const [product, setProduct] = useState([]);
+  const router = useRouter();
+  const { slug } = router.query;
 
   useEffect(() => {
     const getData = async () => {
@@ -24,10 +27,10 @@ const Category = () => {
   return (
     <>
       <Navbar />
-      <div className="container px-6 mt-[4.5rem]">
+      <div className="container px-6 mt-[5rem]">
         <div className="bg-[#FF4200] h-[45vh]">
           <div className="flex justify-start pl-5 pb-10 items-end h-full">
-            <p className="text-white font-semibold text-4xl">Category Name</p>
+            <p className="text-white font-semibold text-4xl">{slug}</p>
           </div>
         </div>
         <div className="my-3">
@@ -41,7 +44,7 @@ const Category = () => {
                         <a href="/">Home</a>
                       </li>
                       <li>
-                        <span>Category Name</span>
+                        <span>{slug}</span>
                       </li>
                     </ul>
                   </div>
@@ -65,9 +68,9 @@ const Category = () => {
                 </button>
               </div>
               <div className="block pb-2 pl-6">
-                {category.map(({ title }, i) => (
+                {category.map(({ title, slug }, i) => (
                   <div key={i} className="py-1 hover:text-[#FF4200]">
-                    <Link href={''} passHref>
+                    <Link href={`/category/${slug}`} passHref>
                       {title}
                     </Link>
                   </div>

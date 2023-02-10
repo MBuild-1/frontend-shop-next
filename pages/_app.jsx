@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-import { ThemeProvider } from 'next-themes';
 import '@/styles/styles.css';
 import 'swiper/css/bundle';
 import { parseCookies } from 'nookies';
@@ -25,9 +24,7 @@ const App = ({ Component, pageProps, ...rest }) => {
 
   return (
     <Provider store={store}>
-      <ThemeProvider enableColorScheme attribute="class">
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Component {...pageProps} />
     </Provider>
   );
 };

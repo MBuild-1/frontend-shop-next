@@ -48,43 +48,50 @@
       "image": "",
       "title": "product 1",
       "price": "1500000",
-      "weight": "1.5"
+      "weight": "1.5",
+      "slug": "product-1"
     },
     {
       "image": "",
       "title": "product 2",
       "price": "2500000",
-      "weight": "3.5"
+      "weight": "3.5",
+      "slug": "product-2"
     },
     {
       "image": "",
       "title": "product 3",
       "price": "3500000",
-      "weight": "5.5"
+      "weight": "5.5",
+      "slug": "product-3"
     },
     {
       "image": "",
       "title": "product 4",
       "price": "500000",
-      "weight": "1.7"
+      "weight": "1.7",
+      "slug": "product-4"
     },
     {
       "image": "",
       "title": "product 5 Ngetest Bisa Sepanjang Apasih?",
       "price": "900000",
-      "weight": "10.5"
+      "weight": "10.5",
+      "slug": "product-5"
     },
     {
       "image": "",
       "title": "product 6 Ngetest Bisa Sepanjang Apasih?",
       "price": "700000",
-      "weight": "10.5"
+      "weight": "10.5",
+      "slug": "product-6"
     },
     {
       "image": "",
       "title": "product 7 Ngetest Bisa Sepanjang Apasih?",
       "price": "300000",
-      "weight": "10.5"
+      "weight": "10.5",
+      "slug": "product-7"
     }
   ]
 }

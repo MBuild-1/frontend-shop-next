@@ -13,7 +13,7 @@ import Banner4 from '../../../images/banners/banner-web-4.png';
 
 export const HomeCarousel = () => {
   return (
-    <div className="sm:mb-4 mt-[8.4rem] lg:mt-[4.5rem]">
+    <div className="sm:mb-4 mt-[8.4rem] lg:mt-[4.8rem]">
       <Swiper
         autoplay={{ delay: 3000 }}
         loop={true}

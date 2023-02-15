@@ -1,24 +1,10 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import CardCategory from '@/components/CardCategory';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import CardCategory from '@/components/CardCategory';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-export const ProductCategory = () => {
-  const [category, setCategory] = useState([]);
-
-  useEffect(() => {
-    const getCategories = async () => {
-      const res = await axios.get('http://localhost:8080/category');
-
-      setCategory(await res.data);
-    };
-
-    getCategories();
-  }, []);
-
+export const ProductCategory = ({ categories }) => {
   return (
     <div className="lg:mx-12 lg:my-2 cat-bg-wrap">
       <p className="text-xl lg:text-[2.5rem] px-4 py-1 lg:py-5 lg:mb-2 font-semibold">
@@ -35,9 +21,9 @@ export const ProductCategory = () => {
         navigation={true}
         modules={[Navigation]}
       >
-        {category.map(({ image, title, slug }, i) => (
+        {categories.map(({ name, slug, icon }, i) => (
           <SwiperSlide key={i}>
-            <CardCategory image={image} title={title} slug={slug} />
+            <CardCategory icon={icon} name={name} slug={slug} />
           </SwiperSlide>
         ))}
       </Swiper>

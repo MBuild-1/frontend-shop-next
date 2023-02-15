@@ -5,6 +5,8 @@ import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { useRegister } from '@/hooks/useRegister';
+import Head from 'next/head';
+import { Spinner } from 'flowbite-react';
 
 export default function Register() {
   const { form, handleSubmit, handleChange, errors, isSubmit } = useRegister();
@@ -26,8 +28,11 @@ export default function Register() {
 
   return (
     <div className="mx-2">
+      <Head>
+        <title>Daftar / Register | Masterbagasi</title>
+      </Head>
       <div className="container mx-auto lg:px-28 py-4">
-        <Link href={'/'} passHref>
+        <Link href={'/'} passHref className="inline-block">
           <Image
             src={LogoMB}
             alt={'Logo Masterbagasi'}
@@ -173,10 +178,10 @@ export default function Register() {
                   </label>
                 </div>
                 <button
-                  type="submit"
-                  className="flex w-full rounded-lg justify-center py-4 btn-slide slide-right font-bold text-white bg-[#FF4200]"
+                  type={isSubmit ? 'button' : 'submit'}
+                  className="flex w-full rounded-lg justify-center py-4 btn-slide slide-right font-bold text-lg text-white bg-[#FF4200]"
                 >
-                  Daftar
+                  {isSubmit ? <Spinner /> : 'Daftar'}
                 </button>
               </form>
               <p className="text-center mt-3 sm:text-xl text-lg text-neutral-500">

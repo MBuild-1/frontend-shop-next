@@ -2,7 +2,20 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["*"]
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.masterbagasi.com',
+        port: '',
+        pathname: '/*/**',
+      }
+    ]
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 }
 

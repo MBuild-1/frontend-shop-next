@@ -6,19 +6,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import CardProduct from '@/components/CardProduct';
 
-export const CoffeTeaCategory = () => {
-  const [product, setProduct] = useState([]);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const res = await axios.get('http://localhost:8080/product');
-
-      setProduct(await res.data);
-    };
-
-    getProducts();
-  }, []);
-
+export const CoffeTeaCategory = ({ cofteas }) => {
   return (
     <div className="sm:mx-12 my-2 ct-bg-wrap">
       <div className="flex justify-between pt-3 pl-5 sm:py-2 sm:px-4">
@@ -44,16 +32,16 @@ export const CoffeTeaCategory = () => {
           navigation={true}
           modules={[Navigation]}
         >
-          {product.map(({ image, title, price, weight, slug }, i) => (
+          {cofteas.data.map((coftea, i) => (
             <SwiperSlide key={i}>
               <CardProduct
                 key={i}
                 label={'Terlaris'}
-                image={image}
-                title={title}
-                price={price}
-                weight={weight}
-                slug={slug}
+                image={coftea.product_image[0]?.path}
+                title={coftea.product.name}
+                price={coftea.selling_price}
+                weight={coftea.weight}
+                slug={coftea.slug}
               />
             </SwiperSlide>
           ))}

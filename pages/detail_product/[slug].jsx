@@ -12,14 +12,20 @@ import {
   IoAtCircleOutline,
   IoLocationOutline,
   IoPricetagOutline,
+  IoChatbubbleEllipses,
 } from 'react-icons/io5';
+import { FaShare, FaRegHeart } from 'react-icons/fa';
 
 import DefaultImg from '../../images/default-picture.jpg';
 import QnaIcon from '../../images/icons/qna.svg';
 import DefaultAvatar from '../../images/default-avatar.jpg';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const DetailProduct = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const router = useRouter();
+  const { slug } = router.query;
 
   return (
     <>
@@ -38,7 +44,7 @@ const DetailProduct = () => {
                             <a href="/">Home</a>
                           </li>
                           <li>
-                            <span>Product Name</span>
+                            <span>{slug}</span>
                           </li>
                         </ul>
                       </div>
@@ -392,7 +398,12 @@ const DetailProduct = () => {
               </div>
               <div className="wrapper flex justify-between items-center border-2 p-4 px-10">
                 <Image src={QnaIcon} width={50} height={50} />
-                <p>Ada Pertanyaan?</p>
+                <div>
+                  <p>Ada Pertanyaan?</p>
+                  <p className="font-bold text-lg">
+                    Diskusi dengan Masta & Bagas atau MBestie lainnya
+                  </p>
+                </div>
                 <button className="border rounded bg-[#ff4200] text-white font-bold px-10 py-2 ">
                   Ikuti Diskusi
                 </button>
@@ -451,7 +462,7 @@ const DetailProduct = () => {
                         <div className="px-5">
                           <input
                             type="text"
-                            placeholder="Berikan komentarmu disini..."
+                            placeholder="Berikan komentarmu..."
                             className="border-2 p-2 w-full input rounded focus:outline-none"
                           />
                         </div>
@@ -471,7 +482,7 @@ const DetailProduct = () => {
                         id="comment"
                         rows="4"
                         class="w-full px-0 text-sm text-gray-900 bg-gray-50 border-0 focus:outline-none dark:placeholder-gray-400"
-                        placeholder="Write a comment..."
+                        placeholder="Tambahkan Komentarmu..."
                         required
                       ></textarea>
                     </div>
@@ -548,7 +559,7 @@ const DetailProduct = () => {
             </div>
           </div>
           <div className="sitebar">
-            <div className="border mx-2 mt-3 px-4 py-4 shadow-md">
+            <div className="border mx-2 mt-3 px-4 py-2 shadow-md">
               <p className="font-semibold text-lg mb-4">
                 Atur Jumlah dan Catatan
               </p>
@@ -591,10 +602,24 @@ const DetailProduct = () => {
               </button>
               <button
                 type="button"
-                className="relative text-[#666666] bg-[#F5F5F5] hover:text-white font-bold border-[2px] border-[#DDDDDD] px-4 py-2 text-center w-full hover:bg-[#FF4200] hover:border-[#FF4200]"
+                className="relative mb-2 text-[#666666] bg-[#F5F5F5] hover:text-white font-bold border-[2px] border-[#DDDDDD] px-4 py-2 text-center w-full hover:bg-[#FF4200] hover:border-[#FF4200]"
               >
                 Beli Langsung
               </button>
+              <div className="flex justify-around items-center py-3">
+                <Link href={''} passHref className="flex items-center gap-2">
+                  <IoChatbubbleEllipses className="text-lg" />
+                  Chat
+                </Link>
+                <Link href={''} passHref className="flex items-center gap-2">
+                  <FaRegHeart className="text-lg" />
+                  Wishlist
+                </Link>
+                <Link href={''} passHref className="flex items-center gap-2">
+                  <FaShare className="text-lg" />
+                  share
+                </Link>
+              </div>
             </div>
           </div>
         </div>

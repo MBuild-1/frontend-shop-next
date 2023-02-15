@@ -6,19 +6,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import CardProduct from '@/components/CardProduct';
 
-export const RecommendCategory = () => {
-  const [product, setProduct] = useState([]);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const res = await axios.get('http://localhost:8080/product');
-
-      setProduct(await res.data);
-    };
-
-    getProducts();
-  }, []);
-
+export const RecommendCategory = ({ recommends }) => {
   return (
     <div className="sm:mx-12 my-2 recommend-bg-wrap">
       <div className="flex justify-between pt-3 pl-5 sm:py-2 sm:px-4">
@@ -44,16 +32,16 @@ export const RecommendCategory = () => {
           navigation={true}
           modules={[Navigation]}
         >
-          {product.map(({ image, title, price, weight, slug }, i) => (
+          {recommends.data.map((recommend, i) => (
             <SwiperSlide key={i}>
               <CardProduct
                 key={i}
                 label={'Terlaris'}
-                image={image}
-                title={title}
-                price={price}
-                weight={weight}
-                slug={slug}
+                image={recommend.product_image[0]?.path}
+                title={recommend.product.name}
+                price={recommend.selling_price}
+                weight={recommend.weight}
+                slug={recommend.slug}
               />
             </SwiperSlide>
           ))}

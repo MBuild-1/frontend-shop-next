@@ -3,18 +3,24 @@ import Image from 'next/image';
 
 import DefaultImg from '../../images/default-picture.jpg';
 
-const CardCategory = ({ image, title, slug }) => {
+const CardCategory = ({ name, slug, icon }) => {
   return (
     <div className="sm:mx-4 mx-2">
       <Link href={`/category/${slug}`} passHref className="product">
         <Image
-          src={image ? image : DefaultImg}
+          src={
+            icon
+              ? process.env.NEXT_PUBLIC_API_STORAGE_URL +
+                '/' +
+                icon.replace('public/', '')
+              : DefaultImg
+          }
           alt={'Dummy'}
           width="auto"
           height="auto"
         />
         <div className="text-center bg-[#eee] text-xs sm:text-base leading-6 sm:leading-8 title-product">
-          <p>{title}</p>
+          <p>{name}</p>
         </div>
       </Link>
     </div>

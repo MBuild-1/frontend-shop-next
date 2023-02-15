@@ -5,6 +5,8 @@ import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 import { useLogin } from '@/hooks/useLogin';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import Head from 'next/head';
+import { Spinner } from 'flowbite-react';
 
 export default function Login() {
   const { form, handleChange, handleSubmit, errors, isSubmit } = useLogin();
@@ -21,8 +23,11 @@ export default function Login() {
 
   return (
     <div className="mx-2">
+      <Head>
+        <title>Masuk / Login | Masterbagasi</title>
+      </Head>
       <div className="container mx-auto lg:px-28 py-4">
-        <Link href={'/'} passHref>
+        <Link href={'/'} passHref className="inline-block">
           <Image
             src={LogoMB}
             alt={'Logo Masterbagasi'}
@@ -131,7 +136,7 @@ export default function Login() {
                         id="terms"
                         type="checkbox"
                         value=""
-                        class="w-5 h-5 mt-1 ml-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                        class="w-5 h-5 mt-1 ml-1 border border-gray-300 rounded bg-gray-50 focus:outline-none"
                       />
                     </div>
                     <label for="terms" class="ml-2 text-md text-black">
@@ -143,40 +148,30 @@ export default function Login() {
                   </Link>
                 </div>
                 <button
-                  type="submit"
-                  className="flex w-full rounded-lg justify-center py-4 btn-slide slide-right font-bold text-white bg-[#FF4200]"
+                  type={isSubmit ? 'button' : 'submit'}
+                  className="flex w-full rounded-lg justify-center py-4 btn-slide slide-right font-bold text-lg text-white bg-[#FF4200]"
                 >
-                  Login
+                  {isSubmit ? <Spinner /> : 'Login'}
                 </button>
               </form>
-              <p className="text-center mt-3 sm:text-xl text-lg text-neutral-500">
-                Dengan ini, saya menyetujui
-              </p>
-              <div className="flex justify-center">
-                <Link
-                  href={'/'}
-                  passHref
-                  className="sm:text-xl text-sm text-[#ff4200]"
-                >
-                  Syarat dan Ketentuan
-                </Link>
-                <p className="sm:mx-2 mx-1 sm:text-xl text-sm text-neutral-500">
-                  serta
+              <div className="flex items-center justify-center gap-2 pt-5 pb-3">
+                <p className="sm:text-lg text-lg text-neutral-500">
+                  Butuh Bantuan?
                 </p>
                 <Link
                   href={'/'}
                   passHref
-                  className="sm:text-xl text-sm text-[#ff4200]"
+                  className="sm:text-lg text-sm text-[#ff4200]"
                 >
-                  Kebijakan Privasi
+                  Hubungi Masterbagasi Care
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex justify-center sm:mt-6 mt-3">
+        <div className="flex justify-center sm:mt-5 mt-3">
           <p className="sm:text-lg text-[0.6rem] text-neutral-500">
-            Ⓒmasterbagasi 2021-2023, PT. Bumi Hijau Khatulistiwa |{' '}
+            Ⓒ masterbagasi 2021-2023, PT. Bumi Hijau Khatulistiwa |{' '}
             <Link
               href={'/'}
               passHref

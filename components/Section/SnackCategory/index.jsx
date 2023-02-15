@@ -1,24 +1,10 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import CardProduct from '@/components/CardProduct';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import CardProduct from '@/components/CardProduct';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-export const SnackCategory = () => {
-  const [product, setProduct] = useState([]);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const res = await axios.get('http://localhost:8080/product');
-
-      setProduct(await res.data);
-    };
-
-    getProducts();
-  }, []);
-
+export const SnackCategory = ({ snacks }) => {
   return (
     <div className="sm:mx-12 my-2 snack-bg-wrap">
       <div className="flex justify-between pt-3 pl-5 sm:py-2 sm:px-4">
@@ -44,16 +30,16 @@ export const SnackCategory = () => {
           navigation={true}
           modules={[Navigation]}
         >
-          {product.map(({ image, title, price, weight, slug }, i) => (
+          {snacks.data.map((snack, i) => (
             <SwiperSlide key={i}>
               <CardProduct
                 key={i}
                 label={'Terlaris'}
-                image={image}
-                title={title}
-                price={price}
-                weight={weight}
-                slug={slug}
+                image={snack.product_image[0]?.path}
+                title={snack.product.name}
+                price={snack.selling_price}
+                weight={snack.weight}
+                slug={snack.slug}
               />
             </SwiperSlide>
           ))}

@@ -7,7 +7,13 @@ const CardProduct = ({ image, label, title, price, weight, slug }) => {
     <div className="lg:mx-2 lg:mb-3 mx-1 border-2 shadow-md">
       <Link href={`/detail_product/${slug}`} passHref>
         <Image
-          src={image ? image : DefaultImg}
+          src={
+            image
+              ? process.env.NEXT_PUBLIC_API_STORAGE_URL +
+                '/' +
+                image.replace('public/', '')
+              : DefaultImg
+          }
           alt={'Dummy'}
           width="auto"
           height="auto"

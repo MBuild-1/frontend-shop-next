@@ -1,3 +1,23 @@
+const StyledDiv = styled.div`
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 30%;
+  right: 0;
+  z-index: 1;
+  background: ${props =>
+    props.banner
+      ? 'linear-gradient(to bottom, rgba(255, 255, 255, 0), #FEFEFE), url(' +
+        process.env.NEXT_PUBLIC_API_STORAGE_URL +
+        '/' +
+        props.banner.replace('public/', '') +
+        ')'
+      : '#FEFEFE'};
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
 export const KitchenBanner = ({ banners }) => {
   return (
     <div className="sm:mx-12 sm:my-4 kitchen">

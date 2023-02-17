@@ -24,11 +24,14 @@ export async function getStaticProps() {
   const getBannerHomepage = await fetch(
     process.env.NEXT_PUBLIC_API_URL + '/v1/web/banner/Homepage',
   );
+  const getBannerKitchen = await fetch(
+    process.env.NEXT_PUBLIC_API_URL + '/v1/web/banner/Kitchen',
+  );
   const getCategory = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/category',
+    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/category',
   );
   const getBrand = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/brand',
+    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/brand',
   );
   const getViralCategory = await fetch(
     process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/is_viral/10',
@@ -47,6 +50,7 @@ export async function getStaticProps() {
   );
 
   const bannerHomepageJSON = await getBannerHomepage.json();
+  const bannerKitchenJSON = await getBannerKitchen.json();
   const categoryJSON = await getCategory.json();
   const brandJSON = await getBrand.json();
   const viralCategoryJSON = await getViralCategory.json();
@@ -56,6 +60,7 @@ export async function getStaticProps() {
   const provinceMapJSON = await getProvinceMap.json();
 
   const bannerHomepage = await bannerHomepageJSON.data;
+  const bannerKitchen = await bannerKitchenJSON.data;
   const category = await categoryJSON.data;
   const brand = await brandJSON.data;
   const viralCategory = await viralCategoryJSON.data;
@@ -67,6 +72,7 @@ export async function getStaticProps() {
   return {
     props: {
       bannerHomepage,
+      bannerKitchen,
       category,
       brand,
       viralCategory,
@@ -75,13 +81,14 @@ export async function getStaticProps() {
       recommendCategory,
       provinceMap,
     },
-    revalidate: 300,
+    revalidate: 60,
   };
 }
 
 export default function Home(props) {
   const {
     bannerHomepage,
+    bannerKitchen,
     category,
     brand,
     viralCategory,
@@ -102,7 +109,7 @@ export default function Home(props) {
         <BrandCategory brands={brand} />
         <ViralCategory virals={viralCategory} />
         <FareCheckBanner />
-        <KitchenBanner />
+        <KitchenBanner banners={bannerKitchen[0].image_desktop} />
         <SnackCategory snacks={snackCategory} />
         <SeasonsBanner />
         <ReelsSlider />

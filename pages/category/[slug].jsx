@@ -9,16 +9,23 @@ import { FaCaretDown } from 'react-icons/fa';
 const Category = () => {
   const [category, setCategory] = useState([]);
   const [product, setProduct] = useState([]);
+  const [name, setName] = useState();
   const router = useRouter();
   const { slug } = router.query;
 
   useEffect(() => {
     const getData = async () => {
-      const categories = await axios.get('http://localhost:8080/category');
-      const products = await axios.get('http://localhost:8080/product');
+      const categories = await axios.get('/v1/web/product/category');
+      // const products = await axios.get('http://localhost:8080/product');
 
-      setCategory(await categories.data);
-      setProduct(await products.data);
+      const resultCategory = await categories.data.data;
+      const detailCategory = resultCategory.filter(item => {
+        return item.slug === slug;
+      });
+
+      setName(detailCategory[0].name);
+      setCategory(resultCategory);
+      // setProduct(await products.data);
     };
 
     getData();
@@ -30,7 +37,7 @@ const Category = () => {
       <div className="container px-6 mt-[5rem]">
         <div className="bg-[#FF4200] h-[45vh]">
           <div className="flex justify-start pl-5 pb-10 items-end h-full">
-            <p className="text-white font-semibold text-4xl">{slug}</p>
+            <p className="text-white font-semibold text-4xl">{name}</p>
           </div>
         </div>
         <div className="my-3">
@@ -59,26 +66,26 @@ const Category = () => {
               <p className="font-semibold text-[20px] ">Filter</p>
             </div>
             <ul>
-              <div className="flex items-center py-2">
+              <div className="flex flex-col py-2">
                 <button className="dropdown-category">
                   Kategori
                   <i className="float-right pr-2">
                     <FaCaretDown />
                   </i>
                 </button>
-              </div>
-              <div className="block pb-2 pl-6">
-                {category.map(({ title, slug }, i) => (
-                  <div key={i} className="py-1 hover:text-[#FF4200]">
-                    <Link href={`/category/${slug}`} passHref>
-                      {title}
-                    </Link>
-                  </div>
-                ))}
+                <div className="block pb-2 pl-6">
+                  {category.map(({ name, slug }, i) => (
+                    <div key={i} className="py-1 hover:text-[#FF4200]">
+                      <Link href={`/category/${slug}`} passHref>
+                        {name}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
               </div>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <div className="grid grid-cols-5">
               {product.map(({ href, image, title, price, weight }, i) => (
                 <CardProduct
@@ -92,7 +99,7 @@ const Category = () => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
         <Footer />
       </div>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import LogoMB from 'images/icons/logo.svg';
-import LocationIcon from 'images/icons/location-off.svg';
+import SelectLocation from './SelectLocation';
 import InboxIcon from 'images/icons/inbox/inbox-off.svg';
 import BellIcon from 'images/icons/notif/lonceng-off.svg';
 import CartIcon from 'images/icons/cart/cart-off.svg';
@@ -11,6 +11,7 @@ import axios from 'axios';
 import nookies from 'nookies';
 
 import DefaultAvatar from '../../../images/default-avatar.jpg';
+import Notification from './Notification';
 
 export const Navbar = () => {
   const { user } = useSelector(state => state.user);
@@ -54,28 +55,7 @@ export const Navbar = () => {
               className="cart-hover"
             />
           </Link>
-          <Link
-            className="relative group top-24 -left-[11rem] sm:top-0 sm:left-0"
-            href={'#'}
-            passHref
-          >
-            <div className="flex relative items-center">
-              <Image
-                src={LocationIcon}
-                alt={'location'}
-                width={25}
-                height={25}
-              />
-              <div className="flex lg:flex-col md:flex-col gap-2 lg:gap-0 md:gap-1 items-center lg:items-start md:items-start">
-                <p className="text-[0.7rem] lg:text-[0.7rem] md:text-[0.7rem] text-[#898989] group-hover:text-black">
-                  Dikirim ke
-                </p>
-                <p className="text-[0.9rem] lg:text-[0.9rem] md:text-[0.8rem] font-bold text-[#898989] group-hover:text-[#FF4200]">
-                  Pilih Negara
-                </p>
-              </div>
-            </div>
-          </Link>
+          <SelectLocation />
         </div>
         <div className="relative sm:mx-3 top-1 sm:top-1 sm:left-0">
           <form action="" method="">
@@ -88,43 +68,7 @@ export const Navbar = () => {
           </form>
         </div>
         <div className="flex items-center">
-          <div className="relative left-[19rem] bottom-10 md:left-0 md:bottom-0 lg:top-1">
-            <ul className="flex md:border-r-2">
-              <li className="lg:mr-4 md:mr-2">
-                <Link href={'#'} passHref>
-                  <Image
-                    src={InboxIcon}
-                    alt={'message'}
-                    width={35}
-                    height={35}
-                    className="inbox-hover hidden md:block"
-                  />
-                </Link>
-              </li>
-              <li className="lg:mr-4 md:mr-1">
-                <Link href={'#'} passHref>
-                  <Image
-                    src={BellIcon}
-                    alt={'notif'}
-                    width={35}
-                    height={35}
-                    className="notif-hover hidden md:block"
-                  />
-                </Link>
-              </li>
-              <li className="lg:mr-4 md:mr-2">
-                <Link href={'#'} passHref>
-                  <Image
-                    src={CartIcon}
-                    alt={'cart'}
-                    width={35}
-                    height={35}
-                    className="cart-hover"
-                  />
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <Notification />
           <div className="flex relative top-1">
             {profile ? (
               <div className="flex items-center px-1">

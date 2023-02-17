@@ -20,6 +20,7 @@ export const BrandCategory = ({ brands }) => {
             },
           }}
           navigation={true}
+          loop={true}
           modules={[Navigation]}
         >
           {brands.map(({ name, slug, icon }, i) => (

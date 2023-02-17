@@ -23,7 +23,7 @@ export const HomeCarousel = ({ banners }) => {
                 src={
                   process.env.NEXT_PUBLIC_API_STORAGE_URL +
                   '/' +
-                  banner.image.replace('public/', '')
+                  banner.image_desktop.replace('public/', '')
                 }
                 alt={'HomeBanner'}
                 fill

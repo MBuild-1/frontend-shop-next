@@ -16,8 +16,8 @@ const CardCategory = ({ name, slug, icon }) => {
               : DefaultImg
           }
           alt={'Dummy'}
-          width="auto"
-          height="auto"
+          width={300}
+          height={300}
         />
         <div className="text-center bg-[#eee] text-xs sm:text-base leading-6 sm:leading-8 title-product">
           <p>{name}</p>

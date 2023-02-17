@@ -65,7 +65,7 @@ export const CategoryMap = ({ provinces }) => {
         <>
           <StyledDiv
             bckgrnd={select.background}
-            banner={select.banner}
+            banner={select.banner_desktop}
             className="relative"
           >
             <CategoryMapHeader />

@@ -9,7 +9,7 @@ const CardBrand = ({ name, slug, icon }) => {
       <Link href={`/brand/${slug}`} passHref>
         <div className="w-[80px] sm:w-auto h-[80px] sm:h-[170px] sm:my-6 rounded-full border-4 border-transparent round-brand relative">
           <Image
-            className="rounded-full transition ease-in-out delay-100 hover:scale-90"
+            className="rounded-full transition ease-in-out delay-100 hover:scale-90 bg-white"
             src={
               icon
                 ? process.env.NEXT_PUBLIC_API_STORAGE_URL +

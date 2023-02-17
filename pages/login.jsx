@@ -35,8 +35,8 @@ export default function Login() {
             height={140}
           />
         </Link>
-        <div className="grid lg:grid-cols-2 lg:gap-2 gap-4">
-          <div className="relative w-full pt-4">
+        <div className="grid lg:grid-cols-2 lg:gap-2 gap-4 lg:border-0 border-b-2">
+          <div className="hidden md:block relative w-full pt-4">
             <div className="text-center pt-[60%] px-3">
               <p className="font-bold text-[1.35rem] sm:text-4xl text-neutral-800 sm:mb-2 mb-1">
                 Selamat Datang di Master Bagasi
@@ -48,7 +48,7 @@ export default function Login() {
             </div>
           </div>
           <div className="sm:p-1">
-            <div className="w-full border-2 mx-auto sm:px-12 px-6 sm:py-4 py-2 sm:shadow-2xl">
+            <div className="w-full lg:border-2 mx-auto sm:px-12 px-6 sm:py-4 py-2 sm:shadow-2xl">
               <p className="text-center font-bold sm:text-2xl text-xl">
                 Masuk ke Masterbagasi
               </p>
@@ -143,7 +143,11 @@ export default function Login() {
                       Remember Password
                     </label>
                   </div>
-                  <Link href={'/'} passHref className="text-[#ff4200]">
+                  <Link
+                    href={'/forgot-password'}
+                    passHref
+                    className="text-[#ff4200]"
+                  >
                     Forgot Password?
                   </Link>
                 </div>

@@ -12,16 +12,22 @@ import DefaultImg from '../../images/default-picture.jpg';
 const Brand = ({ image }) => {
   const [category, setCategory] = useState([]);
   const [product, setProduct] = useState([]);
+  const [name, setName] = useState();
   const router = useRouter();
   const { slug } = router.query;
 
   useEffect(() => {
     const getData = async () => {
-      const categories = await axios.get('http://localhost:8080/category');
-      const products = await axios.get('http://localhost:8080/product');
+      const categories = await axios.get('/v1/web/product/category');
+      // const products = await axios.get('http://localhost:8080/product');
 
-      setCategory(await categories.data);
-      setProduct(await products.data);
+      const resultCategory = await categories.data.data;
+      const detailCategory = resultCategory.filter(item => {
+        return item.slug === slug;
+      });
+
+      setName(detailCategory[0].name);
+      setCategory(resultCategory);
     };
 
     getData();
@@ -41,7 +47,7 @@ const Brand = ({ image }) => {
             <div className="flex flex-col gap-4">
               <div className="flex gap-2 items-center">
                 <div className="w-[30px] h-[30px] rounded-full bg-white"></div>
-                <p className="text-2xl text-white font-semibold">{slug}</p>
+                <p className="text-2xl text-white font-semibold">{name}</p>
               </div>
               <div className="flex gap-2">
                 <button className="btn border-2 border-transparent px-10 py-1 rounded font-semibold text-white hover:text-black bg-[#ff4200]">
@@ -92,7 +98,7 @@ const Brand = ({ image }) => {
                 </button>
               </div>
               <div className="block pb-2 pl-6">
-                {category.map(({ title }, i) => (
+                {category.map(({ name }, i) => (
                   <div
                     key={i}
                     className="flex items-center py-1 hover:text-[#FF4200]"
@@ -104,14 +110,14 @@ const Brand = ({ image }) => {
                       class="w-5 h-5 mt-1 mx-4 ml-1 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                     />
                     <Link href={''} passHref>
-                      {title}
+                      {name}
                     </Link>
                   </div>
                 ))}
               </div>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <div className="grid grid-cols-5">
               {product.map(({ href, image, title, price, weight }, i) => (
                 <CardProduct
@@ -125,7 +131,7 @@ const Brand = ({ image }) => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
         <Footer />
       </div>

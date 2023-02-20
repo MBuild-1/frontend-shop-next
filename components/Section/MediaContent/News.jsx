@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 
 const News = () => {
   return (
-    <div className="sm:w-[50%] sm:my-6 mt-1 sm:pr-2">
+    <div className="lg:my-6 mt-1">
       <Swiper
         autoplay={{ delay: 3000 }}
         navigation={true}

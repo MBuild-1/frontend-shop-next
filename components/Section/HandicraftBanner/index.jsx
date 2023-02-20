@@ -1,7 +1,25 @@
-export const HandicraftBanner = () => {
+import styled from '@emotion/styled';
+
+const StyledDiv = styled.div`
+  background: ${props =>
+    props.banner
+      ? 'url(' +
+        process.env.NEXT_PUBLIC_API_STORAGE_URL +
+        '/' +
+        props.banner.replace('public/', '') +
+        ')'
+      : '#FEFEFE'};
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
+export const HandicraftBanner = ({ banners }) => {
   return (
     <div className="sm:mx-12 sm:my-4 handicraft">
-      <div className="handicraft-content sm:min-h-[337px] min-h-[120px]">
+      <StyledDiv
+        banner={banners}
+        className="handicraft-content lg:min-h-[410px] min-h-[115px]"
+      >
         <div className="container sm:pl-8 pl-4 sm:pr-4 flex justify-between">
           <p className="sm:text-[2.5rem] text-stone-700 font-bold">
             Karya Anak Bangsa
@@ -13,7 +31,7 @@ export const HandicraftBanner = () => {
             Lihat Semua
           </button>
         </div>
-      </div>
+      </StyledDiv>
     </div>
   );
 };

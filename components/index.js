@@ -8,7 +8,7 @@ export * from './Section/FareCheckBanner';
 export * from './Section/KitchenBanner';
 export * from './Section/SnackCategory';
 export * from './Section/SeasonsBanner';
-export * from './Section/ReelsSlider';
+export * from './Section/ShortsSlider';
 export * from './Section/HandicraftBanner';
 export * from './Section/CoffeTeaCategory';
 export * from './Section/CategoryMap';

@@ -13,7 +13,7 @@ import {
   Navbar,
   ProductCategory,
   RecommendCategory,
-  ReelsSlider,
+  ShortsSlider,
   SeasonsBanner,
   ShippingReview,
   SnackCategory,
@@ -26,6 +26,9 @@ export async function getStaticProps() {
   );
   const getBannerKitchen = await fetch(
     process.env.NEXT_PUBLIC_API_URL + '/v1/web/banner/Kitchen',
+  );
+  const getBannerHandycraft = await fetch(
+    process.env.NEXT_PUBLIC_API_URL + '/v1/web/banner/Handycrafts',
   );
   const getCategory = await fetch(
     process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/category',
@@ -48,9 +51,13 @@ export async function getStaticProps() {
   const getProvinceMap = await fetch(
     process.env.NEXT_PUBLIC_API_URL + '/v1/web/province/explore/map',
   );
+  // const getYoutube = await fetch(
+  //   process.env.NEXT_PUBLIC_API_URL + '/v1/web/youtube',
+  // );
 
   const bannerHomepageJSON = await getBannerHomepage.json();
   const bannerKitchenJSON = await getBannerKitchen.json();
+  const bannerHandycraftJSON = await getBannerHandycraft.json();
   const categoryJSON = await getCategory.json();
   const brandJSON = await getBrand.json();
   const viralCategoryJSON = await getViralCategory.json();
@@ -58,9 +65,11 @@ export async function getStaticProps() {
   const coffeeTeaCategoryJSON = await getCoffeeTeaCategory.json();
   const recommendCategoryJSON = await getRecommendCategory.json();
   const provinceMapJSON = await getProvinceMap.json();
+  // const youtubeJSON = await getYoutube.json();
 
   const bannerHomepage = await bannerHomepageJSON.data;
   const bannerKitchen = await bannerKitchenJSON.data;
+  const bannerHandycraft = await bannerHandycraftJSON.data;
   const category = await categoryJSON.data;
   const brand = await brandJSON.data;
   const viralCategory = await viralCategoryJSON.data;
@@ -68,11 +77,13 @@ export async function getStaticProps() {
   const coffeeTeaCategory = await coffeeTeaCategoryJSON.data;
   const recommendCategory = await recommendCategoryJSON.data;
   const provinceMap = await provinceMapJSON.data;
+  // const youtube = await youtubeJSON.data;
 
   return {
     props: {
       bannerHomepage,
       bannerKitchen,
+      bannerHandycraft,
       category,
       brand,
       viralCategory,
@@ -80,6 +91,7 @@ export async function getStaticProps() {
       coffeeTeaCategory,
       recommendCategory,
       provinceMap,
+      // youtube,
     },
     revalidate: 60,
   };
@@ -89,6 +101,7 @@ export default function Home(props) {
   const {
     bannerHomepage,
     bannerKitchen,
+    bannerHandycraft,
     category,
     brand,
     viralCategory,
@@ -96,6 +109,7 @@ export default function Home(props) {
     coffeeTeaCategory,
     recommendCategory,
     provinceMap,
+    // youtube,
   } = props;
   return (
     <>
@@ -112,8 +126,8 @@ export default function Home(props) {
         <KitchenBanner banners={bannerKitchen[0].image_desktop} />
         <SnackCategory snacks={snackCategory} />
         <SeasonsBanner />
-        <ReelsSlider />
-        <HandicraftBanner />
+        <ShortsSlider />
+        <HandicraftBanner banners={bannerHandycraft[0].image_desktop} />
         <CoffeTeaCategory cofteas={coffeeTeaCategory} />
         <CategoryMap provinces={provinceMap} />
         <MediaContent />

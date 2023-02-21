@@ -28,6 +28,7 @@ export const SnackCategory = ({ snacks }) => {
             },
           }}
           navigation={true}
+          loop={true}
           modules={[Navigation]}
         >
           {snacks.data.map((snack, i) => (

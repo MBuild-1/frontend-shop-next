@@ -15,8 +15,8 @@ const CardProduct = ({ image, label, title, price, weight, slug }) => {
               : DefaultImg
           }
           alt={'Dummy'}
-          width="auto"
-          height="auto"
+          width={300}
+          height={300}
         />
         <div className="bg-[#fff]">
           <div className="pb-4 sm:mb-4 mb-3">

@@ -36,13 +36,14 @@ export const ShortsSlider = () => {
             },
           }}
           navigation={true}
+          loop={true}
           modules={[Navigation]}
         >
           {shorts.map(({ title, url }, x) => (
             <SwiperSlide key={x}>
               <Link href={'#'} passHref>
                 <iframe
-                  className="rounded-md sm:w-[15rem] sm:h-[30rem] w-[7rem] h-[15rem]"
+                  className="rounded-md sm:w-[15rem] sm:h-[30rem] w-[7rem] h-[15rem] mx-[1.1rem]"
                   src={`https://www.youtube.com/embed/${url}`}
                   title={title}
                   frameborder="0"

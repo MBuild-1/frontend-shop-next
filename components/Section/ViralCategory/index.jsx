@@ -28,6 +28,7 @@ export const ViralCategory = ({ virals }) => {
             },
           }}
           navigation={true}
+          loop={true}
           modules={[Navigation]}
         >
           {virals.data.map((viral, i) => (

@@ -3,8 +3,27 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Image from 'next/image';
+
+import DefaultThumb from '../../../images/default-news.jpg';
 
 const News = () => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get('/v1/web/news');
+
+      const data = await res.data.data;
+
+      setNews(data);
+    };
+
+    getData();
+  }, []);
+
   return (
     <div className="lg:my-6 mt-1">
       <Swiper
@@ -14,16 +33,22 @@ const News = () => {
         modules={[Autoplay, Navigation]}
         className="homeCarousel"
       >
-        <SwiperSlide>
-          <Link href={'#'} passHref>
-            <img src="http://masterbagasi.com:8081/image/uploads/news/202212101245b0312c21f9e7df84b1a7280e8f1741cd.jpg" />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link href={'#'} passHref>
-            <img src="http://masterbagasi.com:8081/image/uploads/news/2022121013043d350cc1a3b7dbbc61375e7943932add.jpg" />
-          </Link>
-        </SwiperSlide>
+        {news.map(({ thumbnail, slug }, x) => (
+          <SwiperSlide key={x}>
+            <Link href={`/news/${slug}`} passHref>
+              <Image
+                src={
+                  thumbnail
+                    ? process.env.NEXT_PUBLIC_API_STORAGE_URL +
+                      '/' +
+                      thumbnail.replace('public/', '')
+                    : DefaultThumb
+                }
+                fill
+              />
+            </Link>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

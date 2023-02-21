@@ -385,7 +385,7 @@ body {
 }
 
 .reels-section {
-  width: 50%;
+  width: 22%;
   height: 100%;
   animation: 2s ease 0s 1 normal forwards running reelsAnimationOut;
 }

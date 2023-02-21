@@ -137,12 +137,15 @@ export const FareCheckBanner = () => {
               <Button>Ulasan Pengiriman</Button>
             </div>
             <div className="flex justify-center items-center border-2 border-gray-600 bg-[#B3B3B3] rounded py-3 ">
-              <p className="text-white font-semibold text-lg">Air Freight/Kg</p>
+              <p className="text-white font-semibold text-lg text-center">
+                Air Freight/Kg <br /> {country}
+              </p>
             </div>
             <div>
               <Table hoverable={true}>
                 <Table.Head>
-                  <Table.HeadCell>Berat</Table.HeadCell>
+                  <Table.HeadCell>Berat Min / Kg</Table.HeadCell>
+                  <Table.HeadCell>Berat Max / Kg</Table.HeadCell>
                   <Table.HeadCell>Perorangan</Table.HeadCell>
                   <Table.HeadCell>Bersama</Table.HeadCell>
                 </Table.Head>
@@ -153,6 +156,7 @@ export const FareCheckBanner = () => {
                     </Table.Cell>
                     <Table.Cell>Sliver</Table.Cell>
                     <Table.Cell>Laptop</Table.Cell>
+                    <Table.Cell>Laptop</Table.Cell>
                   </Table.Row>
                   <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                     <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -160,12 +164,14 @@ export const FareCheckBanner = () => {
                     </Table.Cell>
                     <Table.Cell>White</Table.Cell>
                     <Table.Cell>Laptop PC</Table.Cell>
+                    <Table.Cell>Laptop PC</Table.Cell>
                   </Table.Row>
                   <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                     <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                       Magic Mouse 2
                     </Table.Cell>
                     <Table.Cell>Black</Table.Cell>
+                    <Table.Cell>Accessories</Table.Cell>
                     <Table.Cell>Accessories</Table.Cell>
                   </Table.Row>
                 </Table.Body>

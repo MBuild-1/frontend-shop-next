@@ -22,6 +22,7 @@ export const SeasonsBanner = () => {
             },
           }}
           navigation={true}
+          loop={true}
           modules={[Navigation]}
         >
           <SwiperSlide>

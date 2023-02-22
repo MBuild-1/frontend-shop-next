@@ -6,24 +6,7 @@ import 'swiper/css/navigation';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Youtube = () => {
-  const [video, setVideo] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get('/v1/web/youtube');
-
-      const data = await res.data.data;
-      const videoYoutube = data.filter(item => {
-        return item.type == 'video';
-      });
-
-      setVideo(videoYoutube);
-    };
-
-    getData();
-  }, []);
-
+const Youtube = ({ video }) => {
   return (
     <div className="lg:my-6 mb-3">
       <Swiper
@@ -35,7 +18,11 @@ const Youtube = () => {
       >
         {video.map(({ title, url }, x) => (
           <SwiperSlide key={x}>
-            <Link href={'#'} passHref>
+            <Link
+              href={'#'}
+              passHref
+              className="flex w-full lg:h-[400px] h-[230px]"
+            >
               <iframe
                 className="w-full h-full"
                 src={`https://www.youtube.com/embed/${url}`}

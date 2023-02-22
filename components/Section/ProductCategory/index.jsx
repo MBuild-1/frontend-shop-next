@@ -11,7 +11,7 @@ export const ProductCategory = ({ categories }) => {
         Kategori Produk Indonesia
       </p>
       <Swiper
-        className="sm:min-h-[290px] min-h-[200px]"
+        className="lg:min-h-[275px] min-h-[175px]"
         slidesPerView={2.5}
         breakpoints={{
           600: {

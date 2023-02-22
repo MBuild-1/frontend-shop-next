@@ -14,7 +14,7 @@ const CardProduct = ({ image, label, title, price, weight, slug }) => {
                 image.replace('public/', '')
               : DefaultImg
           }
-          alt={'Dummy'}
+          alt={title}
           width={300}
           height={300}
         />

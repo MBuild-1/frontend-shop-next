@@ -1,4 +1,16 @@
 // eslint-disable-next-line import/extensions
+import {
+  loadBannerWithType,
+  loadBrand,
+  loadBundling,
+  loadCategory,
+  loadCountry,
+  loadMapProvince,
+  loadNews,
+  loadProductIsViral,
+  loadShippingReviews,
+  loadYoutubeWithType,
+} from '@/lib';
 import Head from 'next/head';
 import {
   BrandCategory,
@@ -21,118 +33,88 @@ import {
 } from '../components';
 
 export async function getStaticProps() {
-  const getBannerHomepage = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/banner/Homepage',
-  );
-  const getBannerKitchen = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/banner/Kitchen',
-  );
-  const getBannerHandycraft = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/banner/Handycrafts',
-  );
-  const getCategory = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/category',
-  );
-  const getBrand = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/brand',
-  );
-  const getViralCategory = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/is_viral/10',
-  );
-  const getSnackCategory = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/is_kitchen/10',
-  );
-  const getCoffeeTeaCategory = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/is_fashionable/10',
-  );
-  const getRecommendCategory = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/product/is_fashionable/10',
-  );
-  const getProvinceMap = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + '/v1/web/province/explore/map',
-  );
-  // const getYoutube = await fetch(
-  //   process.env.NEXT_PUBLIC_API_URL + '/v1/web/youtube',
-  // );
+  try {
+    const bannerHomepage = await loadBannerWithType('Homepage');
+    const category = await loadCategory();
+    const brand = await loadBrand();
+    const productViral = await loadProductIsViral();
+    const bannerShippingPrice = await loadBannerWithType('Shipping Price');
+    const bannerKitchen = await loadBannerWithType('Kitchen');
+    const bundlings = await loadBundling();
+    const youtubeShorts = await loadYoutubeWithType('shorts');
+    const bannerHandycrafts = await loadBannerWithType('Handycrafts');
+    const mapProvince = await loadMapProvince();
+    const news = await loadNews();
+    const youtubeVideos = await loadYoutubeWithType('video');
+    const shippingReviews = await loadShippingReviews();
 
-  const bannerHomepageJSON = await getBannerHomepage.json();
-  const bannerKitchenJSON = await getBannerKitchen.json();
-  const bannerHandycraftJSON = await getBannerHandycraft.json();
-  const categoryJSON = await getCategory.json();
-  const brandJSON = await getBrand.json();
-  const viralCategoryJSON = await getViralCategory.json();
-  const snackCategoryJSON = await getSnackCategory.json();
-  const coffeeTeaCategoryJSON = await getCoffeeTeaCategory.json();
-  const recommendCategoryJSON = await getRecommendCategory.json();
-  const provinceMapJSON = await getProvinceMap.json();
-  // const youtubeJSON = await getYoutube.json();
+    const country = await loadCountry();
 
-  const bannerHomepage = await bannerHomepageJSON.data;
-  const bannerKitchen = await bannerKitchenJSON.data;
-  const bannerHandycraft = await bannerHandycraftJSON.data;
-  const category = await categoryJSON.data;
-  const brand = await brandJSON.data;
-  const viralCategory = await viralCategoryJSON.data;
-  const snackCategory = await snackCategoryJSON.data;
-  const coffeeTeaCategory = await coffeeTeaCategoryJSON.data;
-  const recommendCategory = await recommendCategoryJSON.data;
-  const provinceMap = await provinceMapJSON.data;
-  // const youtube = await youtubeJSON.data;
-
-  return {
-    props: {
-      bannerHomepage,
-      bannerKitchen,
-      bannerHandycraft,
-      category,
-      brand,
-      viralCategory,
-      snackCategory,
-      coffeeTeaCategory,
-      recommendCategory,
-      provinceMap,
-      // youtube,
-    },
-    revalidate: 60,
-  };
+    return {
+      props: {
+        bannerHomepage,
+        category,
+        brand,
+        productViral,
+        bannerShippingPrice,
+        bannerKitchen,
+        bundlings,
+        youtubeShorts,
+        bannerHandycrafts,
+        mapProvince,
+        news,
+        youtubeVideos,
+        shippingReviews,
+        country,
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }
 
 export default function Home(props) {
   const {
     bannerHomepage,
-    bannerKitchen,
-    bannerHandycraft,
     category,
     brand,
-    viralCategory,
-    snackCategory,
-    coffeeTeaCategory,
-    recommendCategory,
-    provinceMap,
-    // youtube,
+    productViral,
+    bannerShippingPrice,
+    bannerKitchen,
+    bundlings,
+    youtubeShorts,
+    bannerHandycrafts,
+    mapProvince,
+    news,
+    youtubeVideos,
+    shippingReviews,
+    country,
   } = props;
   return (
     <>
       <Head>
         <title>Masterbagasi | Bringing Happiness Into Your Table!</title>
       </Head>
-      <Navbar />
+      <Navbar countries={country} />
       <div className="max-w-[1500px] mx-auto">
         <HomeCarousel banners={bannerHomepage} />
         <ProductCategory categories={category} />
         <BrandCategory brands={brand} />
-        <ViralCategory virals={viralCategory} />
-        <FareCheckBanner />
+        <ViralCategory virals={productViral} />
+        <FareCheckBanner banners={bannerShippingPrice} />
         <KitchenBanner banners={bannerKitchen[0].image_desktop} />
-        <SnackCategory snacks={snackCategory} />
-        <SeasonsBanner />
-        <ShortsSlider />
-        <HandicraftBanner banners={bannerHandycraft[0].image_desktop} />
-        <CoffeTeaCategory cofteas={coffeeTeaCategory} />
-        <CategoryMap provinces={provinceMap} />
-        <MediaContent />
-        <RecommendCategory recommends={recommendCategory} />
-        <ShippingReview />
+        <SnackCategory snacks={productViral} />
+        <SeasonsBanner bundlings={bundlings} />
+        <ShortsSlider shorts={youtubeShorts} />
+        <HandicraftBanner banners={bannerHandycrafts[0].image_desktop} />
+        <CoffeTeaCategory cofteas={productViral} />
+        <CategoryMap provinces={mapProvince} />
+        <MediaContent news={news} youtubes={youtubeVideos} />
+        <RecommendCategory recommends={productViral} />
+        <ShippingReview reviews={shippingReviews} />
       </div>
       <Footer />
     </>

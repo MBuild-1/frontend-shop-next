@@ -1,13 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import CardReview from '@/components/CardReview';
+import { Autoplay, EffectCoverflow } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import { Autoplay, EffectCoverflow } from 'swiper';
-import Card from './Card';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-export const ShippingReview = () => {
+export const ShippingReview = ({ reviews }) => {
   return (
     <div className="sm:mx-12 sm:my-4 my-2">
       <p className="sm:text-[1.7rem] sm:py-2 sm:w-[20%] w-[40%] font-semibold border-b-[0.2rem] border-[#FF4200]">
@@ -33,18 +30,18 @@ export const ShippingReview = () => {
           }}
           modules={[Autoplay, EffectCoverflow]}
         >
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card />
-          </SwiperSlide>
+          {reviews.map((review, index) => (
+            <SwiperSlide key={index}>
+              <CardReview
+                key={index}
+                avatar={review.avatar}
+                title={review.title}
+                message={review.message}
+                name={review.name}
+                region={review.region}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

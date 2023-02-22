@@ -9,21 +9,7 @@ import Image from 'next/image';
 
 import DefaultThumb from '../../../images/default-news.jpg';
 
-const News = () => {
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get('/v1/web/news');
-
-      const data = await res.data.data;
-
-      setNews(data);
-    };
-
-    getData();
-  }, []);
-
+const News = ({ news }) => {
   return (
     <div className="lg:my-6 mt-1">
       <Swiper
@@ -35,7 +21,11 @@ const News = () => {
       >
         {news.map(({ thumbnail, slug }, x) => (
           <SwiperSlide key={x}>
-            <Link href={`/news/${slug}`} passHref>
+            <Link
+              href={`/news/${slug}`}
+              passHref
+              className="flex w-full lg:h-[400px] h-[230px]"
+            >
               <Image
                 src={
                   thumbnail

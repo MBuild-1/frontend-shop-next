@@ -17,7 +17,11 @@ export const HomeCarousel = ({ banners }) => {
         {' '}
         {banners.map((banner, index) => (
           <SwiperSlide key={index}>
-            <Link href={'#'} passHref className="flex w-full h-[320px]">
+            <Link
+              href={'#'}
+              passHref
+              className="flex w-full lg:h-[340px] h-[100px]"
+            >
               <Image
                 className="border-6 border-white"
                 src={
@@ -25,7 +29,7 @@ export const HomeCarousel = ({ banners }) => {
                   '/' +
                   banner.image_desktop.replace('public/', '')
                 }
-                alt={'HomeBanner'}
+                alt={banner.title}
                 fill
               />
             </Link>

@@ -1,35 +1,17 @@
-import Image from 'next/image';
-import LocationIcon from 'images/icons/location-off.svg';
 import { Button, Label, Modal, Select } from 'flowbite-react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import LocationIcon from 'images/icons/location-off.svg';
+import Image from 'next/image';
+import { useState } from 'react';
 
-export default function SelectLocation() {
+export default function SelectLocation({ countries }) {
   const [show, setShow] = useState(false);
   const [country, setCountry] = useState('');
-  const [countries, setCountries] = useState([]);
 
   const isModal = typeof window !== 'undefined';
 
   const handleChange = event => {
     setCountry(event.target.value);
-    console.log(event.target.value);
   };
-
-  async function getCountries() {
-    try {
-      const res = await axios.get('/v1/web/country');
-
-      const result = await res.data;
-      setCountries(result.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getCountries();
-  }, []);
 
   return (
     <div className="relative group top-24 -left-[11rem] sm:top-0 sm:left-0">

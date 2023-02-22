@@ -1,6 +1,5 @@
 import { useCategoryMap } from '@/hooks';
 import styled from '@emotion/styled';
-import { Tooltip } from 'flowbite-react';
 import CategoryMapFooter from './CategoryMapFooter';
 import CategoryMapHeader from './CategoryMapHeader';
 import CategoryMapIcon from './CategoryMapIcon';

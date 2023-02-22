@@ -1,20 +1,12 @@
+import CartIcon from 'images/icons/cart/cart-off.svg';
+import LogoMB from 'images/icons/logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import LogoMB from 'images/icons/logo.svg';
-import SelectLocation from './SelectLocation';
-import InboxIcon from 'images/icons/inbox/inbox-off.svg';
-import BellIcon from 'images/icons/notif/lonceng-off.svg';
-import CartIcon from 'images/icons/cart/cart-off.svg';
-import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import nookies from 'nookies';
-import Notification from './Notification';
 import Auth from './Auth';
+import Notification from './Notification';
+import SelectLocation from './SelectLocation';
 
-import DefaultAvatar from '../../../images/default-avatar.jpg';
-
-export const Navbar = () => {
+export const Navbar = ({ countries }) => {
   return (
     <nav className="w-full fixed z-50 -top-1 border-gray-200 px-2 py-10 lg:px-6 lg:py-3 md:px-3 md:py-3  bg-[#F8F9FA]">
       <div className="flex justify-between items-center">
@@ -41,7 +33,7 @@ export const Navbar = () => {
               className="cart-hover"
             />
           </Link>
-          <SelectLocation />
+          <SelectLocation countries={countries} />
         </div>
         <div className="relative sm:mx-3 top-1 sm:top-1 sm:left-0">
           <form action="" method="">

@@ -18,8 +18,7 @@ const CardBrand = ({ name, slug, icon }) => {
                 : DefaultImg
             }
             alt={'Dummy'}
-            layout="fill"
-            objectFit="contain"
+            fill
           />
         </div>
         <div className="text-center text-xs sm:text-base mt-2">

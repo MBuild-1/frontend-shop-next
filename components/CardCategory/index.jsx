@@ -20,7 +20,7 @@ const CardCategory = ({ name, slug, icon }) => {
           height={300}
         />
         <div className="text-center bg-[#eee] text-xs sm:text-base leading-6 sm:leading-8 title-product">
-          <p>{name}</p>
+          <p>{name.length > 18 ? name.substring(0, 15) + '...' : name}</p>
         </div>
       </Link>
     </div>

@@ -1,10 +1,8 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import CardProduct from '@/components/CardProduct';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import CardProduct from '@/components/CardProduct';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const RecommendCategory = ({ recommends }) => {
   return (

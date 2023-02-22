@@ -1,15 +1,14 @@
+import { useLogin } from '@/hooks/useLogin';
+import axios from 'axios';
+import { Modal, Spinner } from 'flowbite-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import nookies from 'nookies';
-import { Button, Label, Modal, TextInput } from 'flowbite-react';
-import { Spinner } from 'flowbite-react';
-import { useLogin } from '@/hooks/useLogin';
-import Swal from 'sweetalert2';
+import { useEffect, useState } from 'react';
+import { FaFacebookF, FaGoogle } from 'react-icons/fa';
 import { IoLogInOutline } from 'react-icons/io5';
-import { FaGoogle, FaFacebookF } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 
 export default function Auth() {
   const [show, setShow] = useState(false);

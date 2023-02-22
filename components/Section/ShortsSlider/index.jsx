@@ -1,29 +1,10 @@
-import axios from 'axios';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-export const ShortsSlider = () => {
-  const [shorts, setShorts] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get('/v1/web/youtube');
-
-      const data = await res.data.data;
-      const shortsYoutube = data.filter(item => {
-        return item.type == 'shorts';
-      });
-
-      setShorts(shortsYoutube);
-    };
-
-    getData();
-  }, []);
-
+export const ShortsSlider = ({ shorts }) => {
   return (
     <div className="relative sm:my-4 my-2 sm:mx-12 py-4 sm:h-[580px] h-[300px] bg-[#eaeaea] reels">
       <div className="reels-section relative"></div>

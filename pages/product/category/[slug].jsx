@@ -109,7 +109,7 @@ const ProductCategoryWithSlug = props => {
           <div className="block bg-[#F7F7F7] rounded-md lg:p-2 lg:mb-0 mb-2">
             <Accordion alwaysOpen className="border-none">
               <Accordion.Panel>
-                <Accordion.Title className="!bg-gray-500 focus:outline-none">
+                <Accordion.Title className="!bg-[#25258C] focus:outline-none">
                   Kategori ({categories.length})
                 </Accordion.Title>
                 <Accordion.Content className="!bg-transparent text-black">
@@ -130,7 +130,7 @@ const ProductCategoryWithSlug = props => {
                 </Accordion.Content>
               </Accordion.Panel>
               <Accordion.Panel>
-                <Accordion.Title className="!bg-gray-500 focus:outline-none">
+                <Accordion.Title className="!bg-[#25258C] focus:outline-none">
                   Brand ({brands.length})
                 </Accordion.Title>
                 <Accordion.Content className="!bg-transparent text-black">

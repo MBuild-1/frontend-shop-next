@@ -3,6 +3,8 @@ import Link from 'next/link';
 import EmptyImage from '../../images/default-picture.jpg';
 import LabelType from './LabelType';
 
+import wishlistIcon from '../../images/icons/wishlist/wishlist-off.svg';
+
 const CardProduct = ({ isViral, bestSeller, productEntry, ...props }) => {
   return (
     <Link href={productEntry.id}>
@@ -64,9 +66,9 @@ const CardProduct = ({ isViral, bestSeller, productEntry, ...props }) => {
             </div>
             <div className="flex justify-around items-center">
               <div className="flex items-center lg:w-[45px] lg:h-[45px] w-[30px] h-[30px]">
-                <img
+                <Image
                   className="wishlist-hover"
-                  src="http://masterbagasi.com:8081/frontend/img/ico/wishlist/cta/wishlist-off.svg"
+                  src={wishlistIcon}
                   alt="wishlist"
                 />
               </div>

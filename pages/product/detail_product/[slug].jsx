@@ -16,9 +16,9 @@
 // } from 'react-icons/io5';
 // import { FaShare, FaRegHeart } from 'react-icons/fa';
 
-// import DefaultImg from '../../images/default-picture.jpg';
-// import QnaIcon from '../../images/icons/qna.svg';
-// import DefaultAvatar from '../../images/default-avatar.jpg';
+// import DefaultImg from '../../../images/default-picture.jpg';
+// import QnaIcon from '../../../images/icons/qna.svg';
+// import DefaultAvatar from '../../../images/default-avatar.jpg';
 // import { useRouter } from 'next/router';
 // import Link from 'next/link';
 

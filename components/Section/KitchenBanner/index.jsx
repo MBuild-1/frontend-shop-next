@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 const StyledDiv = styled.div`
   background: ${props =>
@@ -25,12 +26,13 @@ export const KitchenBanner = ({ banners }) => {
           <p className="sm:text-[2.5rem] text-stone-700 font-bold">
             Isi Dapur Indonesia
           </p>
-          <button
+          <Link
             type="button"
-            className="text-[#FF4200] font-bold text-sm sm:text-[1.3rem] px-7 py-[5px] text-center sm:mr-2 mb-3 sm:mb-2"
+            href={'/product/kitchen'}
+            className="text-[#FF4200] font-bold text-sm sm:text-[1.3rem] px-7 py-[15px] text-center sm:mr-2 mb-3 sm:mb-2"
           >
             Lihat Semua
-          </button>
+          </Link>
         </div>
       </StyledDiv>
     </div>

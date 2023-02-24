@@ -6,7 +6,7 @@ import Auth from './Auth';
 import Notification from './Notification';
 import SelectLocation from './SelectLocation';
 
-export const Navbar = ({ countries }) => {
+export const Navbar = () => {
   return (
     <nav className="w-full fixed z-50 -top-1 border-gray-200 px-2 py-10 lg:px-6 lg:py-3 md:px-3 md:py-3  bg-[#F8F9FA]">
       <div className="flex justify-between items-center">
@@ -20,7 +20,7 @@ export const Navbar = ({ countries }) => {
               height={140}
             />
           </Link>
-          <Link
+          {/* <Link
             href={'#'}
             passHref
             className="relative sm:hidden left-[12.5rem] border-l-2 mt-1 px-2"
@@ -32,8 +32,8 @@ export const Navbar = ({ countries }) => {
               height={35}
               className="cart-hover"
             />
-          </Link>
-          <SelectLocation countries={countries} />
+          </Link> */}
+          <SelectLocation />
         </div>
         <div className="relative sm:mx-3 top-1 sm:top-1 sm:left-0">
           <form action="" method="">

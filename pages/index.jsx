@@ -4,7 +4,6 @@ import {
   loadBrand,
   loadBundling,
   loadCategory,
-  loadCountry,
   loadMapProvince,
   loadNews,
   loadProductIsViral,
@@ -48,8 +47,6 @@ export async function getStaticProps() {
     const youtubeVideos = await loadYoutubeWithType('video');
     const shippingReviews = await loadShippingReviews();
 
-    const country = await loadCountry();
-
     return {
       props: {
         bannerHomepage,
@@ -65,7 +62,6 @@ export async function getStaticProps() {
         news,
         youtubeVideos,
         shippingReviews,
-        country,
       },
       revalidate: 60,
     };
@@ -91,29 +87,28 @@ export default function Home(props) {
     news,
     youtubeVideos,
     shippingReviews,
-    country,
   } = props;
   return (
     <>
       <Head>
         <title>Masterbagasi | Bringing Happiness Into Your Table!</title>
       </Head>
-      <Navbar countries={country} />
+      <Navbar />
       <div className="max-w-[1500px] mx-auto">
         <HomeCarousel banners={bannerHomepage} />
         <ProductCategory categories={category} />
         <BrandCategory brands={brand} />
-        <ViralCategory virals={productViral} />
+        <ViralCategory productViral={productViral} />
         <FareCheckBanner banners={bannerShippingPrice} />
         <KitchenBanner banners={bannerKitchen[0].image_desktop} />
-        <SnackCategory snacks={productViral} />
+        <SnackCategory productSnack={productViral} />
         <SeasonsBanner bundlings={bundlings} />
         <ShortsSlider shorts={youtubeShorts} />
         <HandicraftBanner banners={bannerHandycrafts[0].image_desktop} />
-        <CoffeTeaCategory cofteas={productViral} />
+        <CoffeTeaCategory productCT={productViral} />
         <CategoryMap provinces={mapProvince} />
         <MediaContent news={news} youtubes={youtubeVideos} />
-        <RecommendCategory recommends={productViral} />
+        <RecommendCategory productRecom={productViral} />
         <ShippingReview reviews={shippingReviews} />
       </div>
       <Footer />

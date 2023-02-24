@@ -10,6 +10,8 @@ import { IoLogInOutline } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 
+import DefaultAvatar from '../../../images/default-avatar.jpg';
+
 export default function Auth() {
   const [show, setShow] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -64,7 +66,7 @@ export default function Auth() {
         <>
           <button
             type="button"
-            className="relative lg:ml-[1.5rem] md:ml-[0.8rem] mt-2 text-black font-bold border-[3px] border-[#DDDDDD] sm:border-[#DDDDDD] rounded text-sm px-4 lg:px-7 md:px-3 py-[5px] text-center mr-2 mb-2 ml-14 masuk-btn -left-[13rem] bottom-10 lg:bottom-0 md:bottom-0 lg:left-0 md:left-0"
+            className="relative lg:ml-[1.5rem] md:ml-[0.8rem] mt-2 text-black font-bold border-[3px] border-[#DDDDDD] sm:border-[#DDDDDD] rounded text-sm px-4 lg:px-7 md:px-3 py-[5px] text-center mr-2 mb-2 ml-28 masuk-btn -left-[13rem] bottom-10 lg:bottom-0 md:bottom-0 lg:left-0 md:left-0"
             onClick={() => setShow(true)}
           >
             Masuk

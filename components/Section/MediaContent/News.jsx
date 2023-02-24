@@ -19,10 +19,10 @@ const News = ({ news }) => {
         modules={[Autoplay, Navigation]}
         className="homeCarousel"
       >
-        {news.map(({ thumbnail, slug }, x) => (
+        {news.map(({ thumbnail, slug, id }, x) => (
           <SwiperSlide key={x}>
             <Link
-              href={`/news/${slug}`}
+              href={`/news/${slug}?id=${id}`}
               passHref
               className="flex w-full lg:h-[400px] h-[230px]"
             >

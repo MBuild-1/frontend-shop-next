@@ -1,48 +1,65 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import DefaultImg from '../../images/default-picture.jpg';
+import EmptyImage from '../../images/default-picture.jpg';
+import LabelType from './LabelType';
 
-const CardProduct = ({ image, label, title, price, weight, slug }) => {
+const CardProduct = ({ isViral, bestSeller, productEntry, ...props }) => {
   return (
-    <div className="lg:mx-2 lg:mb-3 mx-1 border-2 shadow-md">
-      <Link href={`/detail_product/${slug}`} passHref>
-        <Image
-          src={
-            image
-              ? process.env.NEXT_PUBLIC_API_STORAGE_URL +
+    <Link href={productEntry.id}>
+      <div className="lg:mx-2 lg:mb-3 mx-1 border-2 shadow-md" {...props}>
+        <div className="flex relative w-full lg:h-[220px] h-[120px] items-center justify-center overflow-hidden">
+          {productEntry.product_image.length !== 0 ? (
+            <Image
+              src={
+                process.env.NEXT_PUBLIC_API_STORAGE_URL +
                 '/' +
-                image.replace('public/', '')
-              : DefaultImg
-          }
-          alt={title}
-          width={300}
-          height={300}
-        />
+                productEntry.product_image[0].path.replace('public/', '')
+              }
+              alt={productEntry.product.name}
+              fill
+            />
+          ) : (
+            <Image
+              src={EmptyImage}
+              alt={productEntry.product.name}
+              width={200}
+              height={200}
+              priority
+            />
+          )}
+        </div>
         <div className="bg-[#fff]">
-          <div className="pb-4 sm:mb-4 mb-3">
+          <div className="lg:mb-2 mb-1">
             <div className="relative">
-              <span
-                className={`absolute left-0 sm:px-2 px-1 py-1 sm:text-base text-sm label-product ${
-                  label === 'Terlaris' ? 'terlaris' : 'terviral'
-                }`}
-              >
-                {label}
-              </span>
+              {isViral && bestSeller ? (
+                <div>
+                  <LabelType type={'isViral'} title={'Lagi Viral'} />
+                  <LabelType type={'bestSeller'} title={'Terlaris'} />
+                </div>
+              ) : isViral ? (
+                <LabelType type={'isViral'} title={'Lagi Viral'} />
+              ) : bestSeller ? (
+                <LabelType type={'bestSeller'} title={'Terlaris'} />
+              ) : (
+                ''
+              )}
             </div>
           </div>
           <div className="lg:mx-2 mx-1">
             <p className="lg:text-base lg:leading-5 text-xs leading-[0.8rem] lg:h-[6vh] h-[5vh]">
-              {title}
+              {productEntry.product.name.length > 42
+                ? `${productEntry.product.name.substring(0, 42)}...`
+                : productEntry.product.name}
             </p>
             <div className="flex justify-between lg:my-3 mt-3 mb-1">
               <p className="lg:text-[1rem] text-[0.6rem] font-bold">
                 {new Intl.NumberFormat('id-ID', {
                   style: 'currency',
                   currency: 'IDR',
-                }).format(price)}
+                }).format(productEntry.selling_price)}
               </p>
               <p className="font-bold lg:text-[0.8rem] text-[0.6rem]">
-                {weight} <span className="font-normal">Kg</span>
+                {productEntry.weight} <span className="font-normal">Kg</span>
               </p>
             </div>
             <div className="flex justify-around items-center">
@@ -64,8 +81,8 @@ const CardProduct = ({ image, label, title, price, weight, slug }) => {
             </div>
           </div>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 

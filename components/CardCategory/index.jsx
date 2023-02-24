@@ -6,7 +6,7 @@ import DefaultImg from '../../images/default-picture.jpg';
 const CardCategory = ({ name, slug, icon }) => {
   return (
     <div className="sm:mx-4 mx-2">
-      <Link href={`/category/${slug}`} passHref className="product">
+      <Link href={`/product/category/${slug}`} passHref className="product">
         <Image
           src={
             icon

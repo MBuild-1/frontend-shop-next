@@ -115,12 +115,12 @@ body {
   border-radius: 0px 15px 15px 0px;
 }
 
-.terviral {
+.isViral {
   background-image: url('../images/background/badge-orange.png');
   background-size: 100%;
 }
 
-.terlaris {
+.bestSeller {
   background-image: url('../images/background/badge-navy.png');
   background-size: 100%;
 }

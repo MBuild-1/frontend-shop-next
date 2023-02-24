@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-export const RecommendCategory = ({ recommends }) => {
+export const RecommendCategory = ({ productRecom }) => {
   return (
     <div className="sm:mx-12 my-2 recommend-bg-wrap">
       <div className="flex justify-between pt-3 pl-5 sm:py-2 sm:px-4">
@@ -28,19 +28,12 @@ export const RecommendCategory = ({ recommends }) => {
             },
           }}
           navigation={true}
+          loop
           modules={[Navigation]}
         >
-          {recommends.data.map((recommend, i) => (
-            <SwiperSlide key={i}>
-              <CardProduct
-                key={i}
-                label={'Terlaris'}
-                image={recommend.product_image[0]?.path}
-                title={recommend.product.name}
-                price={recommend.selling_price}
-                weight={recommend.weight}
-                slug={recommend.slug}
-              />
+          {productRecom.data.map((item, index) => (
+            <SwiperSlide key={index}>
+              <CardProduct bestSeller productEntry={item} />
             </SwiperSlide>
           ))}
         </Swiper>
